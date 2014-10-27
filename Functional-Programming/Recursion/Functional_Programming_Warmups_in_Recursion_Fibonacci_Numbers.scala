@@ -1,7 +1,7 @@
 object Solution {
     def fibonacci(x:Int):Int = {
         if (x < 2){
-            if (x < 1){
+            if (x < 1) {
                 return 0;
             }
             
@@ -12,7 +12,7 @@ object Solution {
     }
 
     def fib(prev: Int, cur: Int, count: Int): Int = {
-        if (count < 1){
+        if (count < 1) {
             return cur;
         }
         
