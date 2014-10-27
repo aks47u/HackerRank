@@ -3,12 +3,12 @@ object Solution {
 
 	def printTriangle(triangle: Triangle) {
 		for (i <- 0 until triangle.length) {
-		for (j <- 0 until i) {
-			print(triangle(i)(j))
-			print(' ')
-		}
+			for (j <- 0 until i) {
+				print(triangle(i)(j))
+				print(' ')
+			}
       
-		println(triangle(i)(i))
+			println(triangle(i)(i))
 		}
 	}
 
