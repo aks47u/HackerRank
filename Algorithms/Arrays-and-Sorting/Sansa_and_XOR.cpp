@@ -18,7 +18,7 @@ int main() {
             
 			if (times % 2 == 1) {
 				ans ^= num;
-            }
+			}
 		}
         
 		cout << ans << endl;
