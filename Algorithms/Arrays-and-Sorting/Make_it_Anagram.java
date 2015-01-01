@@ -10,17 +10,17 @@ public class Make_it_Anagram {
 		char[] A = br.readLine().toCharArray();
 		char[] B = br.readLine().toCharArray();
 		int[] diffs = new int['z' - 'a' + 1];
-		
+
 		for (char c : A) {
 			diffs[c - 'a']++;
 		}
-		
+
 		for (char c : B) {
 			diffs[c - 'a']--;
 		}
-		
+
 		int sum = 0;
-		
+
 		for (int diff : diffs) {
 			sum += (diff < 0) ? -diff : diff;
 		}
