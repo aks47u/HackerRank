@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Two_Arrays {
+public class Two_arrays {
 	private static BufferedReader in = new BufferedReader(
 			new InputStreamReader(System.in));
 
