@@ -1,4 +1,4 @@
-package Algorithms_Warmup;
+package Algorithms;
 
 import java.util.HashSet;
 import java.util.Scanner;
