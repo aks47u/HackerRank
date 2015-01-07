@@ -1,4 +1,4 @@
-package Algorithms_Warmup;
+package Algorithms;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
