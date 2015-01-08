@@ -1,4 +1,4 @@
-package Artificial_Intelligence_A_Search;
+package Artificial_Intelligence;
 
 import java.util.Scanner;
 import java.util.Stack;
