@@ -1,4 +1,4 @@
-package Algorithms_Arrays_and_Sorting;
+package Algorithms;
 
 import java.io.BufferedReader;
 import java.io.IOException;
