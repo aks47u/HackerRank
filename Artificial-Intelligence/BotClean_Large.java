@@ -1,4 +1,4 @@
-package Artificial_Intelligence_Bot_Building;
+package Artificial_Intelligence;
 
 import java.util.ArrayList;
 import java.util.Collection;
