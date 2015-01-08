@@ -1,4 +1,4 @@
-package Algorithms_Combinatorics;
+package Algorithms;
 
 import java.util.Scanner;
 
