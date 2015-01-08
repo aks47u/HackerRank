@@ -1,49 +1,23 @@
-import java.io._
-
-object Io {
-  def useReaderWriter[R](arguments: Array[String])(block: (BufferedReader, PrintWriter) => R) = {
-    use(
-      new BufferedReader(
-        if (arguments.length == 0) new InputStreamReader(System.in)
-        else new FileReader(arguments(0))),
-      new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out))))(block)
-  }
-
-  def use[A <: Closeable, B <: Closeable, R](resourceA: A, resourceB: B)(block: (A, B) => R): R = {
-    try {
-      block(resourceA, resourceB)
-    } finally {
-      if (resourceA != null) resourceA.close()
-      if (resourceB != null) resourceB.close()
-    }
-  }
-
-  def use[T <: Closeable, R](resource: T)(block: T => R): R = {
-    try {
-      block(resource)
-    } finally {
-      if (resource != null) resource.close()
-    }
-  }
-}
+import java.util.Scanner
 
 object Solution {
-  private[this] def run(reader: BufferedReader, writer: PrintWriter) {
-    val t = reader.readLine().toInt
-    for (i <- 0 until t) {
-      val line = reader.readLine()
-      def swap(list: List[Char]) {
-        list match {
-          case Nil => writer.println()
-          case (a :: b :: xs) =>
-            writer.print(b)
-            writer.print(a)
-            swap(xs)
-        }
-      }
-      swap(line.toList)
-    }
-  }
+	def main(args: Array[String]) {
+		val scn = new Scanner(System.in)
+		val T = scn.nextInt()
 
-  def main(arguments: Array[String]) = Io.useReaderWriter(arguments)(run)
+		for (i <- 0 until T) {
+			val str = scn.next()
+			var j = 0
+
+			while (j < str.length - 1) {
+				System.out.print(str.charAt(j + 1))
+				System.out.print(str.charAt(j))
+				j += 2
+			}
+			
+			println()
+		}
+		
+		scn.close()
+	}
 }
