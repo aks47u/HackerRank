@@ -1,7 +1,6 @@
 (defn solveMeFirst [x y]    
     (+ x y))
 
-
 (def a (read-line))
 (def b (read-line))
 
