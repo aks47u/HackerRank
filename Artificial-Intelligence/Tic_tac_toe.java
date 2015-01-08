@@ -1,4 +1,4 @@
-package Artificial_Intelligence_Alpha_Beta_Pruning;
+package Artificial_Intelligence;
 
 import java.util.Scanner;
 
