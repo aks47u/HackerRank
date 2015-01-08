@@ -1,10 +1,10 @@
 import Control.Monad
 import Data.List 
 
-type Grid c = [[c]] -- polymorphic grid 
-type Point = (Int, Int) -- (x, y)
-type IsoTriangle = (Point , Int) -- top, height
-type Image c = Point -> c -- transformation from point to image
+type Grid c = [[c]]
+type Point = (Int, Int)
+type IsoTriangle = (Point , Int)
+type Image c = Point -> c
 
 pointsOfTriangle :: IsoTriangle -> [Point]
 pointsOfTriangle (top, h) = pointsAt top h
