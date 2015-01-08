@@ -1,4 +1,4 @@
-package Algorithms_Dynamic_Programming;
+package Algorithms;
 
 import java.util.Scanner;
 
