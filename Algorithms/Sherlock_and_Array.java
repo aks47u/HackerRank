@@ -1,4 +1,4 @@
-package Algorithms_Ad_Hoc;
+package Algorithms;
 
 import java.io.BufferedReader;
 import java.io.IOException;
