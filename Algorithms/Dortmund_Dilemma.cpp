@@ -110,9 +110,11 @@ int solve(int N, int K) {
 		REP(i,1,N)
 		{
 			rep(j,i)
-				if (arr[j] != arr[N - i + j]) {
-					break;
-				}
+
+			if (arr[j] != arr[N - i + j]) {
+				break;
+			}
+
 			if (j == i) {
 				res++;
 				break;
