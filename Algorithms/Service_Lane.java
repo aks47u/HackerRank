@@ -1,4 +1,4 @@
-package Algorithms_Arrays_and_Sorting;
+package Algorithms;
 
 import java.util.Scanner;
 
@@ -39,7 +39,7 @@ public class Service_Lane {
 		scn.close();
 	}
 
-	public static int find(int[] a, int max, int start, int stop) {
+	private static int find(int[] a, int max, int start, int stop) {
 		if (max <= 0) {
 			return 0;
 		}
