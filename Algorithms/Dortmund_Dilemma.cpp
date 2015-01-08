@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
 #define REP(i,a,b) for(i=a;i<b;i++)
@@ -89,7 +88,6 @@ ull pw(ull a, ull b, ull m) {
 }
 
 int T, N, K;
-
 ll dp[27][100100];
 ll C[27][27];
 ll res;
@@ -99,7 +97,6 @@ int solve(int N, int K) {
 	int arr[100];
 	int pw[100];
 	int res = 0;
-
 	pw[0] = 1;
 	REP(i,1,100)
 	pw[i] = pw[i - 1] * K;
@@ -113,9 +110,9 @@ int solve(int N, int K) {
 		REP(i,1,N)
 		{
 			rep(j,i)
-						if (arr[j] != arr[N - i + j]) {
-							break;
-						}
+				if (arr[j] != arr[N - i + j]) {
+					break;
+				}
 			if (j == i) {
 				res++;
 				break;
@@ -133,6 +130,7 @@ int main() {
 	rep(i,27)
 	{
 		dp[i][0] = 1;
+
 		REP(j,1,100100)
 		{
 			if (j % 2 == 1) {
@@ -146,7 +144,7 @@ int main() {
 	rep(i,27)
 	{
 		rep(j,100100)
-					dp[i][j] = (pw(i, j, MD) - dp[i][j] + MD) % MD;
+		dp[i][j] = (pw(i, j, MD) - dp[i][j] + MD) % MD;
 	}
 
 	rep(j,27)
@@ -156,10 +154,11 @@ int main() {
 	REP(i,1,27)
 	REP(j,1,27)
 	C[i][j] = (C[i - 1][j - 1] + C[i - 1][j]) % MD;
-
 	reader(&T);
+
 	while (T--) {
 		reader(&N, &K);
+
 		REP(i,1,27)
 		{
 			dp2[i] = dp[i][N];
