@@ -73,8 +73,6 @@ void writer(int x, char c) {
 	}
 }
 
-// OEIS bifix-free
-
 ull pw(ull a, ull b, ull m) {
 	ull r = 1;
 
