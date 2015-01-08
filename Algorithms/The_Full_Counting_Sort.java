@@ -1,4 +1,4 @@
-package Algorithms_Arrays_and_Sorting;
+package Algorithms;
 
 import java.util.ArrayList;
 import java.util.HashMap;
