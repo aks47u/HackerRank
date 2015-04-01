@@ -1,5 +1,3 @@
-package Artificial_Intelligence;
-
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -80,6 +78,7 @@ public class PacMan_DFS {
 			}
 
 			if (!total.empty()) {
+
 				current_path.add(pacman_x + " " + pacman_y);
 				String direction = total.pop(); // Get the first node
 
