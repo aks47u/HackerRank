@@ -1,7 +1,7 @@
 import java.math.BigInteger;
 import java.util.Scanner;
 
-public class Solution {
+public class Java_BigInteger {
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
 		BigInteger a = scn.nextBigInteger();
