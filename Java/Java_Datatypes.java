@@ -25,7 +25,7 @@ public class Java_Datatypes {
 			}
 
 			if (b) {
-                if(n == 0 || n == 1) {
+                		if(n == 0 || n == 1) {
 					System.out.println("* boolean");
 				}
 
