@@ -1,2 +1,2 @@
 SELECT *
-  FROM City
+  FROM City;
