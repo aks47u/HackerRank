@@ -113,6 +113,6 @@ public class Triplets {
 	}
 
 	public static void main(String[] args) throws IOException {
-		new Solution().run();
+		new Triplets().run();
 	}
 }
