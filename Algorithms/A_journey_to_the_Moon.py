@@ -15,6 +15,7 @@ if __name__ == '__main__':
                 
                 for i in countries[k]:
                     astronauts[i] = astronauts[A]
+
                 countries[k] = []
         elif astronauts[A] > -1 and astronauts[B] == -1:
             astronauts[B] = astronauts[A]
