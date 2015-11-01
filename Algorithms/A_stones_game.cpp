@@ -1,8 +1,9 @@
+#include <algorithm>
 #include <cmath>
 #include <cstdio>
-#include <vector>
 #include <iostream>
-#include <algorithm>
+#include <vector>
+
 using namespace std;
 
 #define PB push_back
@@ -10,6 +11,7 @@ using namespace std;
 #define SZ(v) ((int)(v).size())
 #define abs(x) ((x) > 0 ? (x) : -(x))
 #define FOREACH(e,x) for(__typeof(x.begin()) e=x.begin();e!=x.end();++e)
+
 typedef long long LL;
 
 const int INF = 0x7fffffff;
@@ -21,8 +23,9 @@ int work(int n) {
 
 	int sgn = 0;
 
-	for (int a = 1; a <= n; a <<= 1, sgn++)
+	for (int a = 1; a <= n; a <<= 1, sgn++) {
 		;
+	}
 
 	int result = INF;
 	int sgTotal = sgn ^ 1;
