@@ -1,3 +1,5 @@
+package Algorithms;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
@@ -74,8 +76,8 @@ final class ArithmeticProgressionsDataSet {
 			multiplicators[pi >>> 1] = Operation.mul(multiplicators[pi >>> 1],
 					multiplicators[pi]);
 			products[pi] = Operation.pow(d[i], p[i]);
-			products[pi >>> 1] = Operation
-					.mul(products[pi >>> 1], products[pi]);
+			products[pi >>> 1] = Operation.mul(products[pi >>> 1],
+					products[pi]);
 		}
 
 		for (int i = length / 2 - 1; i > 0; i--) {
@@ -120,21 +122,21 @@ final class ArithmeticProgressionsDataSet {
 			}
 
 			l >>>= 1;
-				powers[l - 1] += lsum;
-				products[l - 1] = Operation.mul(products[l - 1], lmul);
+			powers[l - 1] += lsum;
+			products[l - 1] = Operation.mul(products[l - 1], lmul);
 
-				if ((r & 1) == 0) {
-					powerSums[r] += value;
-					rsum += (long) value << level;
-					rmul = Operation.mul(rmul,
-							Operation.pow(multiplicators[r], value));
-					r--;
-				}
+			if ((r & 1) == 0) {
+				powerSums[r] += value;
+				rsum += (long) value << level;
+				rmul = Operation.mul(rmul,
+						Operation.pow(multiplicators[r], value));
+				r--;
+			}
 
-				r >>>= 1;
-					powers[r + 1] += rsum;
-					products[r + 1] = Operation.mul(products[r + 1], rmul);
-					level++;
+			r >>>= 1;
+			powers[r + 1] += rsum;
+			products[r + 1] = Operation.mul(products[r + 1], rmul);
+			level++;
 		}
 
 		while (l > 1) {
@@ -142,8 +144,8 @@ final class ArithmeticProgressionsDataSet {
 			powers[l] += rsum;
 			products[l] = Operation.mul(products[l], rmul);
 			r >>>= 1;
-					powers[r] += lsum;
-					products[r] = Operation.mul(products[r], lmul);
+			powers[r] += lsum;
+			products[r] = Operation.mul(products[r], lmul);
 		}
 	}
 
@@ -168,21 +170,21 @@ final class ArithmeticProgressionsDataSet {
 
 		while (l <= r) {
 			if ((l & 1) == 1) {
-				power += powers[l]
-						+ ((long) powerSums[l] + (long) leftStack[level] << level);
+				power += powers[l] + ((long) powerSums[l]
+						+ (long) leftStack[level] << level);
 				l++;
 			}
 
 			l >>>= 1;
 
-						if ((r & 1) == 0) {
-							power += powers[r]
-									+ ((long) powerSums[r] + (long) rightStack[level] << level);
-							r--;
-						}
+			if ((r & 1) == 0) {
+				power += powers[r] + ((long) powerSums[r]
+						+ (long) rightStack[level] << level);
+				r--;
+			}
 
-						r >>>= 1;
-									level++;
+			r >>>= 1;
+			level++;
 		}
 
 		return power;
@@ -194,24 +196,22 @@ final class ArithmeticProgressionsDataSet {
 
 		while (l <= r) {
 			if ((l & 1) == 1) {
-				coef = Operation.mul(
-						coef,
-						Operation.mul(
-								products[l],
-								Operation.pow(multiplicators[l], powerSums[l]
-										+ leftStack[level])));
+				coef = Operation
+						.mul(coef,
+								Operation.mul(products[l], Operation.pow(
+										multiplicators[l],
+										powerSums[l] + leftStack[level])));
 				l++;
 			}
 
 			l >>>= 1;
 
 			if ((r & 1) == 0) {
-				coef = Operation.mul(
-						coef,
-						Operation.mul(
-								products[r],
-								Operation.pow(multiplicators[r], powerSums[r]
-										+ rightStack[level])));
+				coef = Operation
+						.mul(coef,
+								Operation.mul(products[r], Operation.pow(
+										multiplicators[r],
+										powerSums[r] + rightStack[level])));
 				r--;
 			}
 
@@ -241,8 +241,8 @@ final class ArithmeticProgressionsDataSet {
 public class Arithmetic_Progressions {
 	public static void main(String[] args) {
 		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-					System.in), 64 << 10);
+			BufferedReader br = new BufferedReader(
+					new InputStreamReader(System.in), 64 << 10);
 			int n = Integer.parseInt(br.readLine().trim());
 			int[] d = new int[n];
 			int[] p = new int[n];
@@ -263,19 +263,19 @@ public class Arithmetic_Progressions {
 				int queryType = Integer.parseInt(tokenizer.nextToken());
 
 				switch (queryType) {
-				case 0: {
-					int l = Integer.parseInt(tokenizer.nextToken());
-					int r = Integer.parseInt(tokenizer.nextToken());
-					dataSet.queryDiff(l, r);
-					break;
-				}
-				case 1: {
-					int l = Integer.parseInt(tokenizer.nextToken());
-					int r = Integer.parseInt(tokenizer.nextToken());
-					int v = Integer.parseInt(tokenizer.nextToken());
-					dataSet.incrementPowers(l, r, v);
-					break;
-				}
+					case 0: {
+						int l = Integer.parseInt(tokenizer.nextToken());
+						int r = Integer.parseInt(tokenizer.nextToken());
+						dataSet.queryDiff(l, r);
+						break;
+					}
+					case 1: {
+						int l = Integer.parseInt(tokenizer.nextToken());
+						int r = Integer.parseInt(tokenizer.nextToken());
+						int v = Integer.parseInt(tokenizer.nextToken());
+						dataSet.incrementPowers(l, r, v);
+						break;
+					}
 				}
 			}
 		} catch (Exception e) {
