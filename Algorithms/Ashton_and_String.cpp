@@ -108,38 +108,38 @@ LL get(LL x, LL y) {
 }
 
 int main() {
-	CASET
-{	RS(s);
-	int n=LEN(s);
-	LL K;
-	cin>>K;
-	make_suffix_array(128,n+1);
-	int now=0;
-	REPP(i,1,n+1) {
-		now=Height[i];
+	CASET {
+		RS(s);
+		int n = LEN(s);
+		LL K;
+		cin >> K;
+		make_suffix_array(128, n + 1);
+		int now = 0;
 
-		if(K<=get(now+1,n-SA[i])) {
-			LL ll=now+1,rr=n-SA[i];
+		REPP(i, 1, n + 1) {
+			now = Height[i];
 
-			while(ll<rr) {
-				LL mm=(ll+rr)>>1;
+			if(K <= get(now + 1, n - SA[i])) {
+				LL ll = now + 1, rr = n - SA[i];
 
-				if(get(now+1,mm)<K) {
-					ll=mm+1;
+				while(ll < rr) {
+					LL mm = (ll + rr) >> 1;
+
+					if(get(now + 1, mm) < K) {
+						ll = mm + 1;
+					} else {
+						rr = mm;
+					}
 				}
-				else {
-					rr=mm;
-				}
+
+				K -= get(now + 1, ll - 1);
+				printf("%c\n", s[SA[i] + K - 1]);
+				break;
+			} else {
+				K -= get(now + 1, n - SA[i]);
 			}
-
-			K-=get(now+1,ll-1);
-			printf("%c\n",s[SA[i]+K-1]);
-			break;
-		}
-		else {
-			K-=get(now+1,n-SA[i]);
 		}
 	}
-}
+
 	return 0;
 }
