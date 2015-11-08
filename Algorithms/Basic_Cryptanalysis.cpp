@@ -1,9 +1,10 @@
-#include<iostream>
-#include<fstream>
-#include<string>
-#include<vector>
-#include<algorithm>
-#include<cstring>
+#include <algorithm>
+#include <cstring>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+
 using namespace std;
 
 vector<string> vs[17];
