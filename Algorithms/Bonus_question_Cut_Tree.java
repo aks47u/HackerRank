@@ -8,8 +8,7 @@ public class Bonus_question_Cut_Tree {
 	private static int[] outDegree = new int[55];
 	@SuppressWarnings("unchecked")
 	private static ArrayList<Integer>[] tree = new ArrayList[55];
-	private static int n;
-	private static int k;
+	private static int n, k;
 
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(new BufferedInputStream(System.in));
