@@ -5,8 +5,7 @@ import java.util.StringTokenizer;
 public class Bricks_Game {
 	private static int n;
 	private static int[] a;
-	private static Long[] f;
-	private static Long[] g;
+	private static Long[] f, g;
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader scn = new BufferedReader(
