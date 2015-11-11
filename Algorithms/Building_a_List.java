@@ -7,73 +7,62 @@ import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
 public class Building_a_List {
-	BufferedReader reader;
-	StringTokenizer tokenizer;
-	PrintWriter out;
-	private StringBuilder output = new StringBuilder();
-	String inputstring = "";
+	private static BufferedReader br;
+	private static PrintWriter out;
+	private static String input = "";
+	private static StringBuilder sb = new StringBuilder();
+	private static StringTokenizer st;
 
 	public static void main(String[] args) {
-		new Building_a_List().run();
-	}
+		br = new BufferedReader(new InputStreamReader(System.in));
+		st = null;
+		out = new PrintWriter(System.out);
 
-	private void combine(int start) {
-		for (int i = start; i < inputstring.length(); ++i) {
-			output.append(inputstring.charAt(i));
-
-			if (!output.equals("")) {
-				System.out.println(output);
-			}
-
-			if (i < inputstring.length()) {
-				combine(i + 1);
-			}
-
-			output.setLength(output.length() - 1);
+		try {
+			solve();
+			br.close();
+		} catch (NumberFormatException | IOException e) {
+			e.printStackTrace();
 		}
+
+		out.close();
 	}
 
-	public void solve() throws IOException {
+	private static void solve() throws NumberFormatException, IOException {
 		int T = nextInt();
 
-		for (int count = 0; count < T; count++) {
+		while (T-- > 0) {
 			nextInt();
-			inputstring = nextToken();
+			input = nextToken();
 			combine(0);
 		}
 	}
 
-	public void run() {
-		try {
-			reader = new BufferedReader(new InputStreamReader(System.in));
-			tokenizer = null;
-			out = new PrintWriter(System.out);
-			solve();
-			reader.close();
-			out.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.exit(1);
+	private static void combine(int start) {
+		for (int i = start; i < input.length(); ++i) {
+			sb.append(input.charAt(i));
+
+			if (!sb.equals("")) {
+				System.out.println(sb);
+			}
+
+			if (i < input.length()) {
+				combine(i + 1);
+			}
+
+			sb.setLength(sb.length() - 1);
 		}
 	}
 
-	int nextInt() throws IOException {
+	private static int nextInt() throws NumberFormatException, IOException {
 		return Integer.parseInt(nextToken());
 	}
 
-	long nextLong() throws IOException {
-		return Long.parseLong(nextToken());
-	}
-
-	double nextDouble() throws IOException {
-		return Double.parseDouble(nextToken());
-	}
-
-	String nextToken() throws IOException {
-		while (tokenizer == null || !tokenizer.hasMoreTokens()) {
-			tokenizer = new StringTokenizer(reader.readLine());
+	private static String nextToken() throws IOException {
+		while (st == null || !st.hasMoreTokens()) {
+			st = new StringTokenizer(br.readLine());
 		}
-		
-		return tokenizer.nextToken();
+
+		return st.nextToken();
 	}
 }
