@@ -60,6 +60,7 @@ public class Burger_Happiness {
 
 			if (ql <= l && r <= qr) {
 				add += delta;
+
 				return;
 			}
 
@@ -107,7 +108,7 @@ public class Burger_Happiness {
 		out.println(ans);
 	}
 
-	Solution() throws IOException {
+	Burger_Happiness() throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(System.out);
 		solve();
@@ -115,7 +116,7 @@ public class Burger_Happiness {
 	}
 
 	public static void main(String[] args) throws IOException {
-		new Solution();
+		new Burger_Happiness();
 	}
 
 	String nextToken() {
