@@ -16,7 +16,6 @@ public class Circle_City {
 		is = INPUT.isEmpty() ? System.in : new ByteArrayInputStream(
 				INPUT.getBytes());
 		out = new PrintWriter(System.out);
-
 		solve();
 		out.flush();
 	}
