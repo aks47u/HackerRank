@@ -1,3 +1,5 @@
+package Algorithms;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -6,9 +8,9 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Coin_on_the_Table implements Runnable {
-	BufferedReader in;
-	PrintWriter out;
-	StringTokenizer tok = new StringTokenizer("");
+	private BufferedReader br;
+	private PrintWriter out;
+	private StringTokenizer st = new StringTokenizer("");
 
 	public static void main(String[] args) {
 		new Thread(null, new Coin_on_the_Table(), "", 256 * (1L << 20)).start();
@@ -16,10 +18,10 @@ public class Coin_on_the_Table implements Runnable {
 
 	public void run() {
 		try {
-			in = new BufferedReader(new InputStreamReader(System.in));
+			br = new BufferedReader(new InputStreamReader(System.in));
 			out = new PrintWriter(System.out);
 			solve();
-			in.close();
+			br.close();
 			out.close();
 		} catch (Throwable t) {
 			t.printStackTrace(System.err);
@@ -28,11 +30,11 @@ public class Coin_on_the_Table implements Runnable {
 	}
 
 	String readString() throws IOException {
-		while (!tok.hasMoreTokens()) {
-			tok = new StringTokenizer(in.readLine());
+		while (!st.hasMoreTokens()) {
+			st = new StringTokenizer(br.readLine());
 		}
 
-		return tok.nextToken();
+		return st.nextToken();
 	}
 
 	int readInt() throws IOException {
@@ -51,7 +53,8 @@ public class Coin_on_the_Table implements Runnable {
 		int n = readInt();
 		int m = readInt();
 		int k = readInt();
-		int[][] costII = new int[n][m], costID = new int[n][m], costJI = new int[n][m], costJD = new int[n][m];
+		int[][] costII = new int[n][m], costID = new int[n][m],
+				costJI = new int[n][m], costJD = new int[n][m];
 
 		for (int i = 0; i < n; i++) {
 			Arrays.fill(costII[i], 1);
@@ -63,7 +66,7 @@ public class Coin_on_the_Table implements Runnable {
 		int targetX = 0, targetY = 0;
 
 		for (int i = 0; i < n; i++) {
-			String s = in.readLine();
+			String s = br.readLine();
 
 			for (int j = 0; j < m; j++) {
 				if (s.charAt(j) == '*') {
@@ -72,18 +75,18 @@ public class Coin_on_the_Table implements Runnable {
 				}
 
 				switch (s.charAt(j)) {
-				case 'U':
-					costID[i][j] = 0;
-					break;
-				case 'D':
-					costII[i][j] = 0;
-					break;
-				case 'L':
-					costJD[i][j] = 0;
-					break;
-				case 'R':
-					costJI[i][j] = 0;
-					break;
+					case 'U':
+						costID[i][j] = 0;
+						break;
+					case 'D':
+						costII[i][j] = 0;
+						break;
+					case 'L':
+						costJD[i][j] = 0;
+						break;
+					case 'R':
+						costJI[i][j] = 0;
+						break;
 				}
 			}
 		}
