@@ -1,3 +1,5 @@
+package Algorithms;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -199,12 +201,12 @@ public class Count_Strings {
 				HashSet<NFANode> reachable = new HashSet<NFANode>();
 
 				switch (transition) {
-				case 'a':
-					reachable.addAll(node.letterA);
-					break;
-				case 'b':
-					reachable.addAll(node.letterB);
-					break;
+					case 'a':
+						reachable.addAll(node.letterA);
+						break;
+					case 'b':
+						reachable.addAll(node.letterB);
+						break;
 				}
 
 				for (NFANode n : reachable) {
