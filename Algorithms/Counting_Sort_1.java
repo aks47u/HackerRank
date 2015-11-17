@@ -9,8 +9,7 @@ public class Counting_Sort_1 {
 		int[] count = new int[100];
 
 		for (int i = 0; i < n; i++) {
-			int number = scn.nextInt();
-			count[number]++;
+			count[scn.nextInt()]++;
 		}
 		
 		scn.close();
