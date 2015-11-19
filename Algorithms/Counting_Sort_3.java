@@ -8,12 +8,11 @@ public class Counting_Sort_3 {
 		int n = scn.nextInt();
 		int[] count = new int[100];
 
-		for (int i = 0; i <= n; i++) {
+		while (n-- > 0) {
 			String[] words = scn.nextLine().split(" ");
 
 			if (!words[0].equals("")) {
-				int number = Integer.parseInt(words[0]);
-				count[number]++;
+				count[Integer.parseInt(words[0])]++;
 			}
 		}
 
