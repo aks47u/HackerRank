@@ -18,10 +18,8 @@ public class Cutting_boards {
 			int N = Integer.parseInt(input[1]) - 1;
 			int[] Ys = strToArr(M, br.readLine());
 			int[] Xs = strToArr(N, br.readLine());
-
 			Arrays.sort(Xs);
 			Arrays.sort(Ys);
-
 			int vSegs = 1;
 			int hSegs = 1;
 			int y = M - 1;
