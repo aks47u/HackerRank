@@ -12,7 +12,7 @@ public class Diwali_Lights {
 	Exception {
 		int T = Integer.parseInt(in.readLine());
 
-		for (int i = 0; i < T; i++) {
+		while (T-- > 0) {
 			long noOfBulbs = Long.parseLong(in.readLine());
 			System.out.println(ExponentBySquare(2, noOfBulbs).toString());
 		}
