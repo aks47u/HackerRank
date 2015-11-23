@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 #define REP(i,a,b) for(i=a;i<b;i++)
@@ -101,14 +102,12 @@ int solve(int N, int K) {
 	REP(i,1,100)
 	pw[i] = pw[i - 1] * K;
 
-	rep(k,pw[N])
-	{
+	rep(k,pw[N]) {
 		j = k;
 		rep(i,N)
 		arr[i] = j % K, j /= K;
 
-		REP(i,1,N)
-		{
+		REP(i,1,N) {
 			rep(j,i)
 
 			if (arr[j] != arr[N - i + j]) {
@@ -129,12 +128,10 @@ int main() {
 	int i, j;
 	ll dp2[30];
 
-	rep(i,27)
-	{
+	rep(i,27) {
 		dp[i][0] = 1;
 
-		REP(j,1,100100)
-		{
+		REP(j,1,100100) {
 			if (j % 2 == 1) {
 				dp[i][j] = i * dp[i][j - 1] % MD;
 			} else {
@@ -143,8 +140,7 @@ int main() {
 		}
 	}
 
-	rep(i,27)
-	{
+	rep(i,27) {
 		rep(j,100100)
 		dp[i][j] = (pw(i, j, MD) - dp[i][j] + MD) % MD;
 	}
@@ -161,8 +157,7 @@ int main() {
 	while (T--) {
 		reader(&N, &K);
 
-		REP(i,1,27)
-		{
+		REP(i,1,27) {
 			dp2[i] = dp[i][N];
 			REP(j,1,i)
 			dp2[i] -= C[i][j] * dp2[j] % MD;
