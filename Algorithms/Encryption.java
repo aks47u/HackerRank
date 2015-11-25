@@ -23,7 +23,7 @@ public class Encryption {
 		}
 
 		int a = 0;
-		char arr[][] = new char[wid][len];
+		char[][] arr = new char[wid][len];
 
 		for (int i = 0; i < wid; i++) {
 			for (int j = 0; j < len; j++) {
@@ -32,7 +32,6 @@ public class Encryption {
 				} else {
 					arr[i][j] = s.charAt(a++);
 				}
-
 			}
 
 			if (a == s.length()) {
