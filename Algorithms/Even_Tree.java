@@ -17,6 +17,8 @@ public class Even_Tree {
 			A[i][1] = scn.nextInt();
 		}
 
+		scn.close();
+
 		for (int i = 1; i <= N; ++i) {
 			count[i] = 1;
 		}
@@ -62,6 +64,5 @@ public class Even_Tree {
 		}
 
 		System.out.println(even_ans);
-		scn.close();
 	}
 }
