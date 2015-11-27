@@ -5,11 +5,10 @@ import java.util.Scanner;
 public class Find_Digits {
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
-		int t = scn.nextInt();
+		int T = scn.nextInt();
 
-		for (int i = 0; i < t; i++) {
-			int num = scn.nextInt();
-			System.out.println(findDigits(num));
+		while (T-- > 0) {
+			System.out.println(findDigits(scn.nextInt()));
 		}
 
 		scn.close();
