@@ -1,12 +1,16 @@
+package Algorithms;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Find_Maximum_Index_Product {
 	public static void main(String[] args) throws IOException {
-		java.io.BufferedReader in = new java.io.BufferedReader(
-				new java.io.InputStreamReader(System.in));
-		int n = Integer.parseInt(in.readLine());
-		StringTokenizer st = new StringTokenizer(in.readLine());
+		BufferedReader br = new BufferedReader(
+				new InputStreamReader(System.in));
+		int n = Integer.parseInt(br.readLine());
+		StringTokenizer st = new StringTokenizer(br.readLine());
 		long[] data = new long[n];
 
 		for (int i = 0; i < n; i++) {
