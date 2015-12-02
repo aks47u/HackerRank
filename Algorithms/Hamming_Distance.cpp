@@ -19,6 +19,7 @@
 #define LEN(X) strlen(X)
 #define F first
 #define S second
+
 typedef long long LL;
 
 using namespace std;
@@ -30,12 +31,13 @@ int ONES;
 
 void init() {
 	REP(i,LEN)
-				ONES |= 1 << i;
+		ONES |= 1 << i;
 
 	REP(i,BOUND)
 	{
 		bit_cnt[i] = bit_cnt[i >> 1] + (i & 1);
 		int tmp = i;
+
 		REP(j,LEN)
 		{
 			rev[i] <<= 1;
@@ -159,10 +161,10 @@ int main() {
 
 			if (c[0] == 'a') {
 				REP(i,len)
-							tmp1[i] = 0;
+					tmp1[i] = 0;
 			} else {
 				REP(i,len)
-							tmp1[i] = ONES;
+					tmp1[i] = ONES;
 			}
 
 			put(tmp1, ll, rr - ll + 1);
@@ -196,13 +198,14 @@ int main() {
 				int mask1 = (1 << r) - 1;
 				int mask2 = (1 << LEN) - 1 - mask1;
 				REP(i,w)
-				tmp2[i] = rev[((tmp1[w - i] & mask1) << (LEN - r))
+					tmp2[i] = rev[((tmp1[w - i] & mask1) << (LEN - r))
 							  | ((tmp1[w - i - 1] & mask2) >> r)];
 				tmp2[w] = 0;
+
 				REP(i,r)
-				if ((tmp1[0] >> (r - i - 1)) & 1) {
-					tmp2[w] |= 1 << i;
-				}
+					if ((tmp1[0] >> (r - i - 1)) & 1) {
+						tmp2[w] |= 1 << i;
+					}
 			}
 
 			put(tmp2, ll, len);
