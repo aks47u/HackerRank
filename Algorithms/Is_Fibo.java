@@ -9,12 +9,11 @@ public class Is_Fibo {
 
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
-		int t = scn.nextInt();
+		int T = scn.nextInt();
 		preCompute();
 
-		for (int i = 0; i < t; i++) {
-			BigInteger number = new BigInteger(scn.next());
-			System.out.println(isFibonacci(number));
+		while (T-- > 0) {
+			System.out.println(isFibonacci(scn.nextBigInteger()));
 		}
 
 		scn.close();
