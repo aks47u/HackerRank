@@ -11,11 +11,8 @@ public class Lego_Blocks {
 		Scanner scn = new Scanner(System.in);
 		int n = scn.nextInt();
 
-		for (int i = 0; i < n; i++) {
-			int a, b;
-			a = scn.nextInt();
-			b = scn.nextInt();
-			System.out.println(o.solveRestrict(a, b));
+		while (n-- > 0) {
+			System.out.println(o.solveRestrict(scn.nextInt(), scn.nextInt()));
 		}
 
 		scn.close();
