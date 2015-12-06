@@ -1,7 +1,3 @@
-#undef NDEBUG
-#ifdef ssu1
-#endif
-
 #include <algorithm>
 #include <functional>
 #include <numeric>
@@ -44,6 +40,7 @@ template<typename T> inline T sqr(T a) {
 typedef long long li;
 typedef long double ld;
 typedef pair<int, int> pt;
+
 const int NMAX = 110000;
 
 struct node {
@@ -108,6 +105,7 @@ tpos read_char(tpos pos, char c) {
 		return s[t[v].r - up] == c ? tpos(v, up - 1) : tpos(-1, -1);
 	} else {
 		int nextv = t[v].next.count(c) ? t[v].next[c] : -1;
+
 		return nextv != -1 ? tpos(nextv, leng(nextv) - 1) : tpos(-1, -1);
 	}
 }
@@ -136,6 +134,7 @@ int link(int v) {
 				fast_go_down(link(t[v].par), t[v].l + int(t[v].par == 0),
 						t[v].r));
 	}
+
 	return t[v].link;
 }
 
@@ -166,18 +165,19 @@ void make_tree() {
 	t[szt++] = root;
 	tpos pos(0, 0);
 
-	forn(i, szs)
-	{
+	forn(i, szs) {
 		pos = add_char_to_tree(pos, i);
 	}
 }
 
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
+
 using namespace __gnu_pbds;
 
 int K;
 li result = 0;
+
 typedef tree<pt, null_type, less<pt>, rb_tree_tag,
 		tree_order_statistics_node_update> treap;
 
@@ -272,6 +272,7 @@ void dfs(int v, int ln, data& ord) {
 
 	if (ln > 0) {
 		int ansL = -1, ansR = -1;
+
 		{
 			int lf = ln - leng(v) + 1, rg = ln;
 
@@ -341,16 +342,11 @@ void init_stack() {
 }
 
 int main() {
-#ifdef ssu1
-	assert(freopen("input.txt", "rt", stdin));
-#endif
-
 	init_stack();
 	gets(s);
 	szs = (int) strlen(s);
 	s[szs++] = '$';
 	make_tree();
-	assert(scanf("%d", &K) == 1);
 	data ord;
 	dfs(0, 0, ord);
 
@@ -360,8 +356,5 @@ int main() {
 
 	cout << result << endl;
 
-#ifdef ssu1
-	cerr << "\nTime = " << double(clock()) / CLOCKS_PER_SEC << endl;
-#endif    
 	return 0;
 }
