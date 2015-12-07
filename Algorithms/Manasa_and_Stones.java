@@ -11,7 +11,7 @@ public class Manasa_and_Stones {
 		int t = scn.nextInt();
 
 		for (int i = 0; i < t; i++) {
-			Set<Long> answer = ManasaandStones(scn.nextLong(), scn.nextLong(),
+			Set<Long> answer = ManasaAndStones(scn.nextLong(), scn.nextLong(),
 					scn.nextLong());
 			Iterator<Long> iterator = answer.iterator();
 
@@ -25,7 +25,7 @@ public class Manasa_and_Stones {
 		scn.close();
 	}
 
-	private static Set<Long> ManasaandStones(long n, long a, long b) {
+	private static Set<Long> ManasaAndStones(long n, long a, long b) {
 		if (a > b) {
 			long temp = b;
 			b = a;
