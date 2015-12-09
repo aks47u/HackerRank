@@ -19,7 +19,7 @@ public class Maximizing_XOR {
 			}
 		}
 
-		System.out.println(max);
 		scn.close();
+		System.out.println(max);
 	}
 }
