@@ -12,7 +12,7 @@ public class Median_Updates {
 				br = new BufferedReader(new InputStreamReader(System.in));
 				int N = Integer.parseInt(br.readLine().trim());
 
-				for (int i = 0; i < N; i++) {
+				while (N-- > 0) {
 					String[] s = br.readLine().trim().split(" ");
 					char ch = s[0].charAt(0);
 					int x = Integer.parseInt(s[1].trim());
@@ -40,8 +40,7 @@ public class Median_Updates {
 		}
 
 		static class Key implements Comparable<Key> {
-			int x;
-			int ind;
+			int x, ind;
 
 			public Key(int x, int ind) {
 				this.x = x;
