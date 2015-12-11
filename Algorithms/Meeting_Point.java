@@ -61,7 +61,7 @@ public class Meeting_Point {
 		return Math.abs(width - height) + Math.min(width, height);
 	}
 
-	public static class Point {
+	private static class Point {
 		long x;
 		long y;
 	}
