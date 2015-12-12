@@ -2,6 +2,7 @@
 #include<vector>
 #include<algorithm>
 #include<queue>
+
 using namespace std;
 
 struct Type {
@@ -49,7 +50,9 @@ int main() {
 			}
 		}
 
-		if (i == n) idx = n;
+		if (i == n) {
+			idx = n;
+		}
 
 		if (!pq.empty()) {
 			Type tmp = pq.top();
@@ -57,11 +60,14 @@ int main() {
 			cur_t += tmp.l;
 			pq.pop();
 		} else {
-			if (idx != n)
+			if (idx != n) {
 				cur_t = v[idx].t;
+			}
 		}
 
-		if (idx == n && pq.empty()) break;
+		if (idx == n && pq.empty()) {
+			break;
+		}
 	}
 
 	cout << tot / n << endl;
