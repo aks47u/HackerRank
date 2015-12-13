@@ -7,9 +7,8 @@ public class Minimum_Draws {
 		Scanner scn = new Scanner(System.in);
 		int T = scn.nextInt();
 
-		for (int i = 0; i < T; i++) {
-			int noOfPairs = scn.nextInt();
-			System.out.println(minimumDraw(noOfPairs));
+		while (T-- > 0) {
+			System.out.println(minimumDraw(scn.nextInt()));
 		}
 
 		scn.close();
