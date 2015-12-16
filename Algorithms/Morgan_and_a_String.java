@@ -12,8 +12,7 @@ public class Morgan_and_a_String {
 	private static int lenbuf = 0, ptrbuf = 0;
 
 	public static void main(String[] args) throws Exception {
-		is = INPUT.isEmpty() ? System.in : new ByteArrayInputStream(
-				INPUT.getBytes());
+		is = System.in;
 		out = new PrintWriter(System.out);
 		solve();
 		out.flush();
