@@ -12,8 +12,7 @@ public class Palindromes {
 	private static String INPUT = "";
 
 	public static void main(String[] args) throws Exception {
-		is = INPUT.isEmpty() ? System.in : new ByteArrayInputStream(
-				INPUT.getBytes());
+		is = System.in;
 		out = new PrintWriter(System.out);
 		solve();
 		out.flush();
@@ -257,7 +256,7 @@ public class Palindromes {
 			}
 
 			return Arrays.copyOf(buf, p);
-		} catch (IOException e) {
+		} catch (IOException ioe) {
 		}
 
 		return null;
@@ -288,7 +287,7 @@ public class Palindromes {
 					return minus ? -num : num;
 				}
 			}
-		} catch (IOException e) {
+		} catch (IOException ioe) {
 		}
 
 		return -1;
