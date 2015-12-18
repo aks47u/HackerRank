@@ -1,3 +1,5 @@
+package Algorithms;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -8,6 +10,14 @@ import java.io.Reader;
 import java.util.StringTokenizer;
 
 public class Permutation_game {
+	Scanner in = new Scanner(new InputStreamReader(System.in));
+	PrintWriter out = new PrintWriter(new BufferedWriter(
+			new OutputStreamWriter(System.out)));
+
+	public static void main(String[] args) throws IOException {
+		new Permutation_game().run();
+	}
+
 	private void solution() throws IOException {
 		int ts = in.nextInt();
 
@@ -102,12 +112,4 @@ public class Permutation_game {
 			return Integer.parseInt(next());
 		}
 	}
-
-	public static void main(String[] args) throws IOException {
-		new Permutation_game().run();
-	}
-
-	Scanner in = new Scanner(new InputStreamReader(System.in));
-	PrintWriter out = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
 }
