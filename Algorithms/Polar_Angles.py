@@ -1,4 +1,5 @@
 import math
+
 n = input()
 
 def ang(x, y):
@@ -8,6 +9,7 @@ def ang(x, y):
         return (x, y, math.atan2(y, x))
 
 M = []
+
 while n:
     n -= 1
     a, b = map(int, raw_input().split())
