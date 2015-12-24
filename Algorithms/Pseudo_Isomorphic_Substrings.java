@@ -138,12 +138,12 @@ public class Solution implements Runnable {
 			while (leftBound <= rightBound) {
 				int middlePoint = (leftBound + rightBound) >> 1;
 
-			if (equals(pos1, pos2, middlePoint)) {
-				lcp = Math.max(lcp, middlePoint);
-				leftBound = middlePoint + 1;
-			} else {
-				rightBound = middlePoint - 1;
-			}
+				if (equals(pos1, pos2, middlePoint)) {
+					lcp = Math.max(lcp, middlePoint);
+					leftBound = middlePoint + 1;
+				} else {
+					rightBound = middlePoint - 1;
+				}
 			}
 		}
 
