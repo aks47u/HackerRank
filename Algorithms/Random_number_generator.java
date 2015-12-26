@@ -51,7 +51,7 @@ public class Random_number_generator {
 		return out;
 	}
 
-	public static class Fraction {
+	private static class Fraction {
 		public int num;
 		public int den;
 
