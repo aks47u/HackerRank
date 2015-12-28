@@ -7,7 +7,7 @@ public class Restaurant {
 		Scanner scn = new Scanner(System.in);
 		int T = scn.nextInt();
 
-		for (int i = 0; i < T; i++) {
+		while (T-- > 0) {
 			int l = scn.nextInt();
 			int b = scn.nextInt();
 			int gcd = gcd(l, b);
