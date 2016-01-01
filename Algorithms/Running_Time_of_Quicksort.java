@@ -11,23 +11,22 @@ public class Running_Time_of_Quicksort {
 		int n = scn.nextInt();
 		int[] ar = new int[n];
 		int[] arr = new int[n];
-		
+
 		for (int i = 0; i < n; i++) {
 			ar[i] = scn.nextInt();
 			arr[i] = ar[i];
 		}
-		
+
+		scn.close();
 		mergeSort(arr);
 		quickSort(ar, 0, ar.length - 1);
 		System.out.println(answer - swaps);
-		scn.close();
 	}
 
 	private static void swap(int[] ar, int i, int j) {
+		ar[i] ^= ar[j];
+		ar[i] ^= (ar[j] ^= ar[i]);
 		swaps++;
-		int temp = ar[i];
-		ar[i] = ar[j];
-		ar[j] = temp;
 	}
 
 	private static int Partition(int[] ar, int start, int end) {
@@ -35,13 +34,10 @@ public class Running_Time_of_Quicksort {
 		int i = start;
 		int j = start;
 
-		while (i < end) {
+		while (i++ < end) {
 			if (ar[i] < pivot) {
 				swap(ar, i, j);
-				i++;
 				j++;
-			} else {
-				i++;
 			}
 		}
 
@@ -69,32 +65,24 @@ public class Running_Time_of_Quicksort {
 
 		while (point1 < m && point2 < n) {
 			if (ar1[point1] < ar2[point2]) {
-				result[index_result] = ar1[point1];
-				point1++;
-				index_result++;
+				result[index_result] = ar1[point1++];
 			} else if (ar1[point1] > ar2[point2]) {
 				answer += m - point1;
-				result[index_result] = ar2[point2];
-				index_result++;
-				point2++;
+				result[index_result] = ar2[point2++];
 			} else {
-				result[index_result] = ar1[point1];
-				index_result++;
-				point1++;
+				result[index_result] = ar1[point1++];
 			}
+
+			index_result++;
 		}
 
 		while (point1 < m) {
-			result[index_result] = ar1[point1];
-			index_result++;
-			point1++;
+			result[index_result++] = ar1[point1++];
 		}
 
 		while (point2 < n) {
 			answer += m - point1;
-			result[index_result] = ar2[point2];
-			index_result++;
-			point2++;
+			result[index_result++] = ar2[point2++];
 		}
 
 		return result;
