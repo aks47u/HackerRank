@@ -1,8 +1,9 @@
-#include <cstdio>
-#include <string>
-#include <map>
-#include <cstring>
 #include <cassert>
+#include <cstdio>
+#include <cstring>
+#include <map>
+#include <string>
+
 using namespace std;
 
 typedef unsigned long long llu;
@@ -136,7 +137,7 @@ void makewhite(int x, int y, node temp, llu ans, int add) {
 
 	yes = (temp.dwb == 1);
 
-	if ((x) && (temp.a[y] == ((y << 1) | 1))) {
+	if ((x) &&(temp.a[y] == ((y << 1) | 1))) {
 		for (i = y + 1; i < n; ++i) {
 			if (temp.a[i] == temp.a[y]) {
 				break;
@@ -152,8 +153,8 @@ void makewhite(int x, int y, node temp, llu ans, int add) {
 		}
 	}
 
-	ll = ((y) && iswhite(temp.a[y - 1])) ? temp.a[y - 1] : (-1);
-	uu = ((x) && iswhite(temp.a[y])) ? temp.a[y] : (-1);
+	ll = ((y) &&iswhite(temp.a[y - 1])) ? temp.a[y - 1] : (-1);
+	uu = ((x) &&iswhite(temp.a[y])) ? temp.a[y] : (-1);
 	k = x ? n : (y + 1);
 
 	if (uu < 0) {
@@ -200,7 +201,7 @@ void makeblack(int x, int y, node temp, llu ans, int add) {
 
 	yes = (temp.dwb == 0);
 
-	if ((x) && (temp.a[y] == (y << 1))) {
+	if ((x) &&(temp.a[y] == (y << 1))) {
 		for (i = y + 1; i < n; ++i) {
 			if (temp.a[i] == temp.a[y]) {
 				break;
@@ -216,8 +217,8 @@ void makeblack(int x, int y, node temp, llu ans, int add) {
 		}
 	}
 
-	ll = ((y) && isblack(temp.a[y - 1])) ? temp.a[y - 1] : (-1);
-	uu = ((x) && isblack(temp.a[y])) ? temp.a[y] : (-1);
+	ll = ((y) &&isblack(temp.a[y - 1])) ? temp.a[y - 1] : (-1);
+	uu = ((x) &&isblack(temp.a[y])) ? temp.a[y] : (-1);
 	k = x ? n : (y + 1);
 
 	if (uu < 0) {
