@@ -7,16 +7,17 @@ import java.util.StringTokenizer;
 
 public class Sherlock_and_Cost {
 	public static void main(String[] args) throws IOException {
-		BufferedReader scn = new BufferedReader(
+		BufferedReader br = new BufferedReader(
 				new InputStreamReader(System.in));
+		int T = Integer.parseInt(br.readLine());
 
-		for (int T = Integer.parseInt(scn.readLine()); T > 0; T--) {
-			int n = Integer.parseInt(scn.readLine());
-			StringTokenizer str = new StringTokenizer(scn.readLine());
+		while (T-- > 0) {
+			int n = Integer.parseInt(br.readLine());
+			StringTokenizer s = new StringTokenizer(br.readLine());
 			int[] b = new int[n + 1];
 
 			for (int i = 1; i <= n; i++) {
-				b[i] = Integer.parseInt(str.nextToken());
+				b[i] = Integer.parseInt(s.nextToken());
 			}
 
 			int[][] f = new int[n + 1][2];
@@ -33,6 +34,6 @@ public class Sherlock_and_Cost {
 			System.out.println(Math.max(f[n][0], f[n][1]));
 		}
 
-		scn.close();
+		br.close();
 	}
 }
