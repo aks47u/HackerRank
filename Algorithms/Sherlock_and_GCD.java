@@ -7,7 +7,7 @@ public class Sherlock_and_GCD {
 		Scanner scn = new Scanner(System.in);
 		int t = scn.nextInt();
 
-		for (int i = 0; i < t; i++) {
+		while (t-- > 0) {
 			int N = scn.nextInt();
 			int[] a = new int[N];
 			int gc = 0;
@@ -17,23 +17,13 @@ public class Sherlock_and_GCD {
 				gc = gcd(gc, a[j]);
 			}
 
-			if (gc == 1) {
-				System.out.println("YES");
-			} else {
-				System.out.println("NO");
-			}
+			System.out.println((gc == 1 ? "YES" : "NO"));
 		}
 
 		scn.close();
 	}
 
-	private static int gcd(int m, int n) {
-		while (n > 0) {
-			int tmp = n;
-			n = m % n;
-			m = tmp;
-		}
-
-		return m;
+	private static int gcd(int a, int b) {
+		return b == 0 ? a : gcd(b, a % b);
 	}
 }
