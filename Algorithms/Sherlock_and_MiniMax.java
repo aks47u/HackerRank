@@ -76,12 +76,12 @@ public class Sherlock_and_MiniMax {
 		while (i < j) {
 			curMaxMin = (A[i + 1] - A[i]) >> 1;
 
-		if (curMaxMin > maxMin || (curMaxMin == maxMin && maxMinVal == Q)) {
-			maxMin = curMaxMin;
-			maxMinVal = A[i] + curMaxMin;
-		}
+			if (curMaxMin > maxMin || (curMaxMin == maxMin && maxMinVal == Q)) {
+				maxMin = curMaxMin;
+				maxMinVal = A[i] + curMaxMin;
+			}
 
-		++i;
+			++i;
 		}
 
 		return maxMinVal;
