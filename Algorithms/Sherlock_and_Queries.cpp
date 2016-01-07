@@ -1,21 +1,19 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+
 using namespace std;
 
-#define MOD 1000000007
 typedef long long LL;
-#define assn(n,a,b) assert(n>=a && n<=b)
 LL a[100006], b[100006], c[100006], counti[100006] = { };
+
+#define MOD 1000000007
 
 int main() {
 	memset(counti, -1, sizeof(counti));
 	LL n, m, i, j;
 	cin >> n >> m;
-	assn(n, 1, 100000);
-	assn(m, 1, 100000);
 
 	for (i = 1; i <= n; i++) {
 		cin >> a[i];
-		assn(a[i], 1, 100000);
 	}
 
 	for (i = 1; i <= m; i++) {
@@ -25,7 +23,6 @@ int main() {
 
 	for (i = 1; i <= m; i++) {
 		cin >> c[i];
-		assn(c[i], 1, 100000);
 	}
 
 	for (i = 1; i <= m; i++) {
