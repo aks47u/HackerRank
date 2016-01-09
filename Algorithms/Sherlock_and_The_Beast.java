@@ -7,7 +7,7 @@ public class Sherlock_and_The_Beast {
 		Scanner scn = new Scanner(System.in);
 		int t = scn.nextInt();
 
-		for (int i = 0; i < t; i++) {
+		while (t-- > 0) {
 			String s = "";
 			int n = scn.nextInt();
 
@@ -29,12 +29,12 @@ public class Sherlock_and_The_Beast {
 	}
 
 	private static String repeat(String str, int times) {
-		StringBuilder ret = new StringBuilder();
+		StringBuilder sb = new StringBuilder();
 
 		for (int i = 0; i < times; i++) {
-			ret.append(str);
+			sb.append(str);
 		}
 
-		return ret.toString();
+		return sb.toString();
 	}
 }
