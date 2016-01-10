@@ -23,7 +23,7 @@ public class Sherlock_and_permutations {
 		scn.close();
 	}
 
-	public static BigInteger factorial(int n) {
+	private static BigInteger factorial(int n) {
 		BigInteger fact = BigInteger.ONE;
 
 		for (int i = 1; i <= n; i++) {
