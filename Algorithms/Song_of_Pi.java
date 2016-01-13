@@ -7,12 +7,12 @@ public class Song_of_Pi {
 		int T = scn.nextInt();
 		scn.nextLine();
 
-		for (int i = 0; i < T; i++) {
+		while (T-- > 0) {
 			String[] isPi = scn.nextLine().split(" ");
 			boolean b = true;
 
-			for (int j = 0; j < isPi.length; j++) {
-				if (isPi[j].length() != Integer.parseInt("" + pi.charAt(j))) {
+			for (int i = 0; i < isPi.length; i++) {
+				if (isPi[i].length() != Integer.parseInt("" + pi.charAt(i))) {
 					b = false;
 					break;
 				}
