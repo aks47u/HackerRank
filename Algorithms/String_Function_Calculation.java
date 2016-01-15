@@ -18,7 +18,7 @@ public class String_Function_Calculation {
 		out.println(a.root.dp());
 	}
 
-	static class SuffixAutomata {
+	private static class SuffixAutomata {
 		static class Vertex {
 			Vertex suffixLink = null;
 			Vertex[] edges;
@@ -112,7 +112,7 @@ public class String_Function_Calculation {
 		}
 	}
 
-	static class Input {
+	private static class Input {
 		BufferedReader in;
 		StringBuilder sb = new StringBuilder();
 
