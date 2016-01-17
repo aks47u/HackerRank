@@ -7,14 +7,14 @@ public class Swap_Nodes_Algo {
 		Node root = buildTree(in);
 		int t = in.nextInt();
 
-		for (int i = 0; i < t; ++i) {
+		while (t-- > 0) {
 			swapKDevisible(root, in.nextInt());
 			inOrderTraversal(root);
 			System.out.println();
 		}
 	}
 
-	public static void swapKDevisible(Node nd, int k) {
+	private static void swapKDevisible(Node nd, int k) {
 		if (nd == null) {
 			return;
 		}
@@ -27,7 +27,7 @@ public class Swap_Nodes_Algo {
 		swapKDevisible(nd.right, k);
 	}
 
-	public static Node buildTree(Scanner sc) {
+	private static Node buildTree(Scanner sc) {
 		HashMap<Integer, Node> cache = new HashMap<Integer, Node>();
 		Node root = new Node(null, null, 1, 1);
 		cache.put(1, root);
@@ -55,7 +55,7 @@ public class Swap_Nodes_Algo {
 		return root;
 	}
 
-	public static Node buildNewNode(int data, int depth) {
+	private static Node buildNewNode(int data, int depth) {
 		if (data == -1) {
 			return null;
 		}
@@ -63,7 +63,7 @@ public class Swap_Nodes_Algo {
 		return new Node(null, null, data, depth);
 	}
 
-	public static void swapChildren(Node nd) {
+	private static void swapChildren(Node nd) {
 		if (nd == null) {
 			return;
 		}
@@ -73,7 +73,7 @@ public class Swap_Nodes_Algo {
 		nd.left = t;
 	}
 
-	public static void inOrderTraversal(Node nd) {
+	private static void inOrderTraversal(Node nd) {
 		if (nd == null) {
 			return;
 		}
@@ -83,7 +83,7 @@ public class Swap_Nodes_Algo {
 		inOrderTraversal(nd.right);
 	}
 
-	public static class Node {
+	private static class Node {
 		public Node left;
 		public Node right;
 		public int data;
