@@ -6,7 +6,7 @@ public class Solution {
 		Scanner scn = new Scanner(System.in);
 		int T = scn.nextInt();
 
-		for (int i = 0; i < T; i++) {
+		while (T-- > 0) {
 			long B = scn.nextInt();
 			long W = scn.nextInt();
 			long X = scn.nextInt();
