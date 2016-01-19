@@ -18,11 +18,14 @@ using namespace std;
 #define pb push_back
 #define fi first
 #define se second
+
 typedef long long ll;
 typedef pair<int, int> pii;
+
 const int MAX_N = 2e5 + 1;
 const int POINT = -1;
 const int QUERY = +1;
+
 int N;
 ll W, H;
 int px[MAX_N], py[MAX_N];
@@ -93,11 +96,12 @@ int ts[MAX_N];
 void dfs(int u, int p) {
 	ts[u] = 1;
 
-	for (int v : E[u])
+	for (int v : E[u]) {
 		if (v != p) {
 			dfs(v, u);
 			ts[u] += ts[v];
 		}
+	}
 }
 
 int center(int u) {
