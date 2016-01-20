@@ -3,6 +3,7 @@
 #include <cstdio>
 #include <algorithm>
 #include <map>
+
 using namespace std;
 
 int xsz[32], xbasis[32][32], n, i, a[1000000 + 5], death[1000000 + 5],
