@@ -26,6 +26,7 @@ public class The_Full_Counting_Sort {
 			map.get(key).add(value);
 		}
 
+		scn.close();
 		int mid = s / 2;
 		StringBuffer sb = new StringBuffer();
 
@@ -45,6 +46,5 @@ public class The_Full_Counting_Sort {
 		}
 
 		System.out.println(sb.toString());
-		scn.close();
 	}
 }
