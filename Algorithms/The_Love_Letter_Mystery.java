@@ -5,12 +5,10 @@ import java.util.Scanner;
 public class The_Love_Letter_Mystery {
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
-		int numTestCases = scn.nextInt();
+		int T = scn.nextInt();
 		
-		while (numTestCases > 0) {
-			String word = scn.next();
-			System.out.println(getNumRotations(word));
-			--numTestCases;
+		while (T-- > 0) {
+			System.out.println(getNumRotations(scn.next()));
 		}
 		
 		scn.close();
