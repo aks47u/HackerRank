@@ -9,7 +9,7 @@ public class Triplets {
 	private StringTokenizer st;
 	private BufferedReader in;
 
-	static class Fenwik {
+	private static class Fenwik {
 		long[] f;
 
 		Fenwik(int n) {
