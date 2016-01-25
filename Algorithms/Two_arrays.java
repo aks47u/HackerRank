@@ -57,8 +57,9 @@ public class Two_arrays {
 						result = "YES";
 						flag = 1;
 						break;
-					} else
+					} else {
 						flag = 0;
+					}
 				}
 
 				if (flag == 0) {
