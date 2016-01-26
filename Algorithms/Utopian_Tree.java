@@ -5,24 +5,23 @@ import java.util.Scanner;
 public class Utopian_Tree {
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
-		int noOfTestCases = scn.nextInt();
+		int T = scn.nextInt();
 
-		for (int i = 0; i < noOfTestCases; i++) {
-			int noOfCycles = scn.nextInt();
-			System.out.println(UtopianHeight(noOfCycles));
+		while (T-- > 0) {
+			System.out.println(UtopianHeight(scn.nextInt()));
 		}
 
 		scn.close();
 	}
 
-	private static int UtopianHeight(int noOfCycles) {
+	private static int UtopianHeight(int n) {
 		int height = 1;
 
-		if (noOfCycles <= 0) {
+		if (n <= 0) {
 			return 1;
 		}
 
-		for (int i = 1; i <= noOfCycles; i++) {
+		for (int i = 1; i <= n; i++) {
 			if (i % 2 != 0) {
 				height *= 2;
 			} else {
