@@ -4,9 +4,9 @@ import java.util.Scanner;
 public class Vertical_Sticks {
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
-		int cases = scn.nextInt();
+		int T = scn.nextInt();
 
-		while (cases-- > 0) {
+		while (T-- > 0) {
 			int numbers = scn.nextInt();
 			int[] data = new int[numbers];
 
