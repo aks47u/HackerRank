@@ -149,7 +149,7 @@ class SegmentTreeSeq {
 		if ((f ^ t) << 31 - b < 0) {
 			int w = t >> b << b;
 
-		return Math.max(operate(f, w - 1, b, a), operate(w, t, b, a));
+			return Math.max(operate(f, w - 1, b, a), operate(w, t, b, a));
 		} else {
 			return operate(f, t, b, a);
 		}
