@@ -4,10 +4,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class nCr {
-	private static int[][] mod11;
-	private static int[][] mod13;
-	private static int[][] mod37;
-	private static int[][] mod27;
+	private static int[][] mod11, mod13, mod37, mod27;
 	private static HashMap<Integer, int[][]> map;
 
 	public static void main(String[] args) {
@@ -91,7 +88,7 @@ public class nCr {
 
 	private static int factorialMod(int n, int prime, int bit) {
 		int ret = 1;
-		int[][] modprime = map.get(prime); // dat prime better be there. "prime"
+		int[][] modprime = map.get(prime);
 		int div = prime;
 
 		if (div == 27) {
