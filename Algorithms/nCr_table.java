@@ -19,7 +19,7 @@ public class nCr_table {
 	public void solve() throws IOException {
 		int T = nextInt();
 
-		for (int count = 0; count < T; count++) {
+		while (T-- > 0) {
 			int N = nextInt();
 			BigInteger nCk = BigInteger.ONE;
 			int i = N;
