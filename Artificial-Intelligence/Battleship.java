@@ -67,8 +67,7 @@ public class Battleship {
 						if (x + 1 < 10 && board[x + 1].charAt(y) == 'h') {
 							for (int i = 1; i < 9 - x; i++) {
 								if (x - i >= 0 && board[x - i].charAt(y) == '-') {
-									x = x - i;
-
+									x -= i;
 									break;
 								} else if (x - i >= 0
 										&& board[x - i].charAt(y) == 'm') {
@@ -78,8 +77,7 @@ public class Battleship {
 
 							for (int i = 1; i < 9 - x; i++) {
 								if (x + i < 10 && board[x + i].charAt(y) == '-') {
-									x = x + i;
-
+									x += i;
 									break;
 								} else if (x + i < 10
 										&& board[x + i].charAt(y) == 'm') {
@@ -89,8 +87,7 @@ public class Battleship {
 						} else if (x - 1 >= 0 && board[x - 1].charAt(y) == 'h') {
 							for (int i = 1; i < 9 - x; i++) {
 								if (x - i >= 0 && board[x - i].charAt(y) == '-') {
-									x = x - i;
-
+									x -= i;
 									break;
 								} else if (x - i >= 0
 										&& board[x - i].charAt(y) == 'm') {
@@ -100,8 +97,7 @@ public class Battleship {
 
 							for (int i = 1; i < 9 - x; i++) {
 								if (x + i < 10 && board[x + i].charAt(y) == '-') {
-									x = x + i;
-
+									x += i;
 									break;
 								} else if (x + i < 10
 										&& board[x + i].charAt(y) == 'm') {
@@ -111,8 +107,7 @@ public class Battleship {
 						} else if (y + 1 < 10 && board[x].charAt(y + 1) == 'h') {
 							for (int i = 1; i < 9 - y; i++) {
 								if (y - i >= 0 && board[x].charAt(y - i) == '-') {
-									y = y - i;
-
+									y -= i;
 									break;
 								} else if (y - i >= 0
 										&& board[x].charAt(y - i) == 'm') {
@@ -122,8 +117,7 @@ public class Battleship {
 
 							for (int i = 1; i < 9 - y; i++) {
 								if (y + i < 10 && board[x].charAt(y + i) == '-') {
-									y = y + i;
-
+									y += i;
 									break;
 								} else if (y + i < 10
 										&& board[x].charAt(y + i) == 'm') {
@@ -133,8 +127,7 @@ public class Battleship {
 						} else if (y - 1 >= 0 && board[x].charAt(y - 1) == 'h') {
 							for (int i = 1; i < 9 - y; i++) {
 								if (y - i >= 0 && board[x].charAt(y - i) == '-') {
-									y = y - i;
-
+									y -= i;
 									break;
 								} else if (y - i >= 0
 										&& board[x].charAt(y - i) == 'm') {
@@ -144,8 +137,7 @@ public class Battleship {
 
 							for (int i = 1; i < 9 - y; i++) {
 								if (y + i < 10 && board[x].charAt(y + i) == '-') {
-									y = y + i;
-
+									y += i;
 									break;
 								} else if (y + i < 10
 										&& board[x].charAt(y + i) == 'm') {
