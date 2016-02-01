@@ -42,6 +42,7 @@ public class BotClean {
 
 		if (cboard[posx][posy] == DIRTY) {
 			System.out.println(m);
+
 			return;
 		}
 
