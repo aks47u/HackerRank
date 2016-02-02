@@ -28,8 +28,8 @@ public class BotClean_Large {
 			board[i] = scn.next();
 		}
 
-		next_move(pos[0], pos[1], dim[0], dim[1], board);
 		scn.close();
+		next_move(pos[0], pos[1], dim[0], dim[1], board);
 	}
 
 	private static String getAction(String[] board, Node source,
