@@ -22,8 +22,8 @@ public class BotClean_Stochastic {
             board[i] = scn.next();
         }
  
-        nextMove(pos[0], pos[1], board);
         scn.close();
+        nextMove(pos[0], pos[1], board);
     }
  
     private static void nextMove(int posx, int posy, String[] board) {
@@ -33,8 +33,7 @@ public class BotClean_Stochastic {
             return;
         }
  
-        int d_x = 0;
-        int d_y = 0;
+        int d_x = 0, d_y = 0;
  
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
