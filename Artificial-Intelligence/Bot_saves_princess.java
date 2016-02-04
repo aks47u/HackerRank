@@ -12,8 +12,8 @@ public class Bot_saves_princess {
 			grid[i] = scn.next();
 		}
 
-		displayPathtoPrincess(m, grid);
 		scn.close();
+		displayPathtoPrincess(m, grid);
 	}
 
 	private static void displayPathtoPrincess(int n, String[] grid) {
