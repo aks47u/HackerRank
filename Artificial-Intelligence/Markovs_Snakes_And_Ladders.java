@@ -18,7 +18,7 @@ public class Markovs_Snakes_And_Ladders {
 		scn.close();
 	}
 
-	public static int findEstimatedNumberOfTurns(ArrayList<Integer> probs,
+	private static int findEstimatedNumberOfTurns(ArrayList<Integer> probs,
 			int[][] events) {
 		int turnTotal = 0;
 		int simCount = 0;
@@ -39,7 +39,7 @@ public class Markovs_Snakes_And_Ladders {
 		}
 	}
 
-	public static int simulateGame(ArrayList<Integer> probs, int[][] events) {
+	private static int simulateGame(ArrayList<Integer> probs, int[][] events) {
 		int turns = 0;
 		int currentSquare = 1;
 		boolean gameFinished = false;
@@ -62,7 +62,7 @@ public class Markovs_Snakes_And_Ladders {
 		return turns;
 	}
 
-	public static int processEvent(int currentSquare, int[][] events) {
+	private static int processEvent(int currentSquare, int[][] events) {
 		int square = currentSquare;
 
 		for (int i = 0; i < events.length; i++) {
@@ -74,7 +74,7 @@ public class Markovs_Snakes_And_Ladders {
 		return square;
 	}
 
-	public static int rollDie(ArrayList<Integer> probs) {
+	private static int rollDie(ArrayList<Integer> probs) {
 		if (probs.size() != 6) {
 			return 0;
 		}
@@ -90,7 +90,7 @@ public class Markovs_Snakes_And_Ladders {
 		return 0;
 	}
 
-	public static ArrayList<Integer> setDieProbs(String probList) {
+	private static ArrayList<Integer> setDieProbs(String probList) {
 		ArrayList<Integer> probs = new ArrayList<Integer>();
 		String[] probStrings = probList.split(",");
 
@@ -107,7 +107,7 @@ public class Markovs_Snakes_And_Ladders {
 		return probs;
 	}
 
-	public static int setEventCount(String countList) {
+	private static int setEventCount(String countList) {
 		int count = 0;
 		String[] countStrings = countList.split(",");
 
@@ -118,7 +118,7 @@ public class Markovs_Snakes_And_Ladders {
 		return count;
 	}
 
-	public static int[][] setEvents(String ladderList, String snakeList,
+	private static int[][] setEvents(String ladderList, String snakeList,
 			int eventCount) {
 		int[][] events = new int[eventCount][2];
 		int index = 0;
