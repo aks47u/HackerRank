@@ -21,6 +21,7 @@ public class PacMan_DFS {
 			grid[i] = scn.next();
 		}
 
+		scn.close();
 		traveled = new boolean[x][y];
 		dfs(x, y, pacman_x, pacman_y, food_x, food_y, grid);
 		String[] curr_path = current_path.toArray(new String[0]);
@@ -36,8 +37,6 @@ public class PacMan_DFS {
 		for (int i = fin_path.length; i > 0; i--) {
 			System.out.println(fin_path[i - 1]);
 		}
-
-		scn.close();
 	}
 
 	private static boolean dfs(int x, int y, int pacman_x, int pacman_y,
@@ -78,9 +77,8 @@ public class PacMan_DFS {
 			}
 
 			if (!total.empty()) {
-
 				current_path.add(pacman_x + " " + pacman_y);
-				String direction = total.pop(); // Get the first node
+				String direction = total.pop();
 
 				if (direction.contains("DOWN") && found == false) {
 					found = dfs(x, y, pacman_x + 1, pacman_y, food_x, food_y,
