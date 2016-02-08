@@ -32,17 +32,13 @@ def ucs_iterative(r, c, pacman_r, pacman_c, food_r, food_c, grid):
     fringe.put(start, 0)
     cost_so_far[start] = 0
     came_from[start] = None
-
     while not fringe.is_empty() > 0:
         current = fringe.get()
-
         if is_goal(current, grid):
             return came_from
-
         neighbours = get_neighbours(current, grid)
         for next in neighbours:
             new_cost = cost_so_far[current] + cost_of_move(next, grid)
-
             if (next not in came_from and not fringe.contains(next)) or (new_cost < cost_so_far[next]):
                 came_from[next] = current
                 cost_so_far[next] = new_cost
@@ -80,9 +76,7 @@ def reconstruct_path(goal, came_from):
 pacman_r, pacman_c = [ int(i) for i in raw_input().strip().split() ]
 food_r, food_c = [ int(i) for i in raw_input().strip().split() ]
 r,c = [ int(i) for i in raw_input().strip().split() ]
-
 grid = []
 for i in xrange(0, r):
     grid.append(raw_input().strip())
-
 ucs(r, c, pacman_r, pacman_c, food_r, food_c, grid)
