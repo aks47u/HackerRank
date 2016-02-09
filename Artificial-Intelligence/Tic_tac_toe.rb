@@ -21,9 +21,7 @@ class GameState
     @rank ||= final_state_rank || intermediate_state_rank
   end
 
-  # this is only ever called when it's the AI's (the X player) turn
   def next_move
-
     moves.max_by {|x| x.rank }
   end
 
@@ -35,7 +33,6 @@ class GameState
   end
 
   def intermediate_state_rank
-    # recursion, baby
     ranks = moves.collect{ |game_state| game_state.rank }
     if current_player == player_figure
       ranks.max
@@ -46,17 +43,12 @@ class GameState
 
   def winner
     @winner ||= [
-     # horizontal wins
      [0, 1, 2],
      [3, 4, 5],
      [6, 7, 8],
-
-     # vertical wins
      [0, 3, 6],
      [1, 4, 7],
      [2, 5, 8],
-
-     # diagonal wins
      [0, 4, 8],
      [6, 4, 2]
     ].collect { |positions|
@@ -82,7 +74,6 @@ class GameTree
       unless player_at_position
         next_board = game_state.board.dup
         next_board[position] = game_state.current_player
-
         next_game_state = GameState.new(next_player, next_board, player_figure)
         next_game_state.current_move = position
         game_state.moves << next_game_state
@@ -91,9 +82,9 @@ class GameTree
     end
   end
 end
+
 def opponent(player)
     return 'O' if player == 'X'
-    
     'X'
 end
 
