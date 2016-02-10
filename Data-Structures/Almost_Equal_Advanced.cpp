@@ -22,7 +22,6 @@ struct element {
 	bool operator <(element that) const {
 		return val < that.val;
 	}
-
 } E[100001];
 
 int toLeft[100001], toRight[100001];
