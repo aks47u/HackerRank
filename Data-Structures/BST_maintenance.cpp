@@ -4,11 +4,13 @@
 
 using namespace std;
 
-#define maxn 1000000 + 5
+#define maxn 1000005
 
 struct tree_node {
 	int l, r, tag;
-} tree[maxn];
+}
+
+tree[maxn];
 
 struct info {
 	int cut_vertex, cur_dist, subtree_idx;
@@ -21,15 +23,17 @@ struct info {
 		cur_dist = _cur_dist;
 		subtree_idx = _subtree_idx;
 	}
-} cur;
+}
+
+cur;
 
 vector<info> belongs[maxn];
 vector<int> num_of_subtree_added[maxn];
 vector<long long> sum_of_subtree_distances[maxn];
-int was[maxn], iteration, sn_sz, sub_nodes[maxn], subtree[maxn], q, f[maxn],
-
-t[maxn], p[maxn], n, i, anc, tn, ii, _cut_vertex, j, dst[maxn], queue[maxn], q1,
-q2, sp, st[maxn], Last[maxn], a[maxn], bst_left[maxn], bst_right[maxn];
+int  was[maxn], iteration, sn_sz, sub_nodes[maxn], subtree[maxn], q, f[maxn],
+		t[maxn], p[maxn], n, i, anc, tn, ii, _cut_vertex, j, dst[maxn],
+		queue[maxn], q1, q2, sp, st[maxn], Last[maxn], a[maxn], bst_left[maxn],
+		bst_right[maxn];
 long long sum_of_distances[maxn], num_of_part_vertexes[maxn], ret;
 bool cut[maxn];
 
@@ -174,10 +178,10 @@ void add_vertex(int k) {
 			sum_of_distances[cur.cut_vertex] += cur.cur_dist;
 			ret +=
 					cur.cur_dist
-					* (num_of_part_vertexes[cur.cut_vertex]
-											- num_of_subtree_added[cur.cut_vertex][cur.subtree_idx]);
+							* (num_of_part_vertexes[cur.cut_vertex]
+									- num_of_subtree_added[cur.cut_vertex][cur.subtree_idx]);
 			ret += sum_of_distances[cur.cut_vertex]
-									- sum_of_subtree_distances[cur.cut_vertex][cur.subtree_idx];
+					- sum_of_subtree_distances[cur.cut_vertex][cur.subtree_idx];
 		} else {
 			ret += sum_of_distances[cur.cut_vertex];
 		}
