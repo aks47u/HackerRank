@@ -9,7 +9,7 @@ typedef long long int Lint;
 typedef pair<int, int> ii;
 int N, Q, K, srt[110000], sizeLeft[110000], sizeRight[110000], A, B, C, D = 1,
 		R[110000][35], L[110000][35], OK[110000];
-Lint num[110000], ans[110000], G[110000], P, POW[35]; //G[x]=f( x , N )
+Lint num[110000], ans[110000], G[110000], P, POW[35];
 ii query[110000];
 string s;
 
