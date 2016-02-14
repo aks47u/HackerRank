@@ -844,10 +844,10 @@ abstract class IntervalTree {
 			initLeaf(root, left);
 		} else {
 			int middle = (left + right) >> 1;
-		initBefore(root, left, right, middle);
-		init(2 * root + 1, left, middle);
-		init(2 * root + 2, middle + 1, right);
-		initAfter(root, left, right, middle);
+			initBefore(root, left, right, middle);
+			init(2 * root + 1, left, middle);
+			init(2 * root + 2, middle + 1, right);
+			initAfter(root, left, right, middle);
 		}
 	}
 
