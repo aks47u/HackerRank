@@ -33,10 +33,15 @@ class NetworkAdministration {
 			int y = in.nextInt() - 1;
 			int a = in.nextInt() - 1;
 			LinkCutTree.Node edgeNode = new LinkCutTree.Node(0);
-			if (lct[a][x] == null)
+			
+			if (lct[a][x] == null) {
 				lct[a][x] = new LinkCutTree.Node(0);
-			if (lct[a][y] == null)
+			}
+
+			if (lct[a][y] == null) {
 				lct[a][y] = new LinkCutTree.Node(0);
+			}
+
 			LinkCutTree.link(lct[a][x], edgeNode);
 			LinkCutTree.link(lct[a][y], edgeNode);
 			++deg[a][x];
@@ -49,7 +54,9 @@ class NetworkAdministration {
 				return Long.compare(a.edge, b.edge);
 			}
 		});
+
 		long[] edges = new long[L];
+
 		for (int i = 0; i < L; i++) {
 			edges[i] = infos[i].edge;
 		}
@@ -58,12 +65,14 @@ class NetworkAdministration {
 			int t = in.nextInt();
 			int a = in.nextInt() - 1;
 			int b = in.nextInt() - 1;
+
 			if (t == 1) {
 				int admin = in.nextInt() - 1;
 				long e = edge(a, b);
 				int index = Arrays.binarySearch(edges, e);
 				Info info = index < 0 ? null : infos[index];
 				Integer prevAdmin = info == null ? null : info.admin;
+
 				if (prevAdmin == null) {
 					out.println("Wrong link");
 				} else if (prevAdmin == admin) {
@@ -82,10 +91,15 @@ class NetworkAdministration {
 					LinkCutTree.Node edgeNode = info.edgeNode;
 					LinkCutTree.cut(lct[prevAdmin][a], edgeNode);
 					LinkCutTree.cut(lct[prevAdmin][b], edgeNode);
-					if (lct[admin][a] == null)
+
+					if (lct[admin][a] == null) {
 						lct[admin][a] = new LinkCutTree.Node(0);
-					if (lct[admin][b] == null)
+					}
+
+					if (lct[admin][b] == null) {
 						lct[admin][b] = new LinkCutTree.Node(0);
+					}
+
 					LinkCutTree.link(lct[admin][a], edgeNode);
 					LinkCutTree.link(lct[admin][b], edgeNode);
 					info.admin = admin;
@@ -97,6 +111,7 @@ class NetworkAdministration {
 				LinkCutTree.modify(edgeNode, edgeNode, x);
 			} else {
 				int admin = in.nextInt() - 1;
+
 				if (lct[admin][a] == null || lct[admin][b] == null
 						|| !LinkCutTree.connected(lct[admin][a], lct[admin][b])) {
 					out.println("No connection");
@@ -159,10 +174,14 @@ class NetworkAdministration {
 					Node t = left;
 					left = right;
 					right = t;
-					if (left != null)
+
+					if (left != null) {
 						left.revert = !left.revert;
-					if (right != null)
+					}
+
+					if (right != null) {
 						right.revert = !right.revert;
+					}
 				}
 			}
 
@@ -183,13 +202,16 @@ class NetworkAdministration {
 		}
 
 		static void connect(Node ch, Node p, Boolean isLeftChild) {
-			if (ch != null)
+			if (ch != null) {
 				ch.parent = p;
+			}
+
 			if (isLeftChild != null) {
-				if (isLeftChild)
+				if (isLeftChild) {
 					p.left = ch;
-				else
+				} else {
 					p.right = ch;
+				}
 			}
 		}
 
@@ -208,26 +230,36 @@ class NetworkAdministration {
 			while (!x.isRoot()) {
 				Node p = x.parent;
 				Node g = p.parent;
-				if (!p.isRoot())
+
+				if (!p.isRoot()) {
 					g.push();
+				}
+
 				p.push();
 				x.push();
-				if (!p.isRoot())
+
+				if (!p.isRoot()) {
 					rotate((x == p.left) == (p == g.left) ? p : x);
+				}
+
 				rotate(x);
 			}
+
 			x.push();
 			x.update();
 		}
 
 		static Node expose(Node x) {
 			Node last = null;
+
 			for (Node y = x; y != null; y = y.parent) {
 				splay(y);
 				y.left = last;
 				last = y;
 			}
+
 			splay(x);
+
 			return last;
 		}
 
@@ -237,10 +269,13 @@ class NetworkAdministration {
 		}
 
 		public static boolean connected(Node x, Node y) {
-			if (x == y)
+			if (x == y) {
 				return true;
+			}
+
 			expose(x);
 			expose(y);
+
 			return x.parent != null;
 		}
 
@@ -259,6 +294,7 @@ class NetworkAdministration {
 		public static int query(Node from, Node to) {
 			makeRoot(from);
 			expose(to);
+
 			return getSubTreeValue(to);
 		}
 
@@ -282,36 +318,51 @@ class InputReader {
 
 	public int nextInt() {
 		int c = read();
-		while (isWhitespace(c))
+
+		while (isWhitespace(c)) {
 			c = read();
+		}
+
 		int sign = 1;
+
 		if (c == '-') {
 			sign = -1;
 			c = read();
 		}
+
 		int res = 0;
+
 		do {
-			if (c < '0' || c > '9')
+			if (c < '0' || c > '9') {
 				throw new InputMismatchException();
+			}
+
 			res = res * 10 + c - '0';
 			c = read();
 		} while (!isWhitespace(c));
+
 		return res * sign;
 	}
 
 	int read() {
-		if (size == -1)
+		if (size == -1) {
 			throw new InputMismatchException();
+		}
+
 		if (pos >= size) {
 			pos = 0;
+
 			try {
 				size = is.read(buf);
 			} catch (IOException e) {
 				throw new InputMismatchException();
 			}
-			if (size <= 0)
+
+			if (size <= 0) {
 				return -1;
+			}
 		}
+
 		return buf[pos++] & 255;
 	}
 
