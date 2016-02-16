@@ -140,6 +140,7 @@ public class Recalling_Early_Days_GP_with_Trees {
 					up[f] -= mod;
 				}
 			}
+
 			for (int i = 0; i < n; i++) {
 				int cur = ord[i];
 
