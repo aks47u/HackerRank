@@ -23,7 +23,6 @@ public class Rooted_Tree {
 class RootedTree {
 	private static final long MOD = (long) (1e9 + 7);
 	long reverse = (MOD + 1) / 2;
-
 	private DFSOrder order;
 	private LCA lca;
 	private SumIntervalTree base;
@@ -47,8 +46,10 @@ class RootedTree {
 		squared = new SumIntervalTree(count);
 		int[] parent = new int[count];
 		dfs(root, -1, parent, tree);
+
 		for (int i = 0; i < queryCount; i++) {
 			char type = in.readCharacter();
+
 			if (type == 'Q') {
 				int a = in.readInt() - 1;
 				int b = in.readInt() - 1;
@@ -56,8 +57,11 @@ class RootedTree {
 				long result = value(a) + value(b) - value(cLCA)
 						- value(parent[cLCA]);
 				result %= MOD;
-				if (result < 0)
+
+				if (result < 0) {
 					result += MOD;
+				}
+
 				out.printLine(result);
 			} else {
 				int node = in.readInt() - 1;
@@ -75,8 +79,10 @@ class RootedTree {
 	}
 
 	private long value(int node) {
-		if (node == -1)
+		if (node == -1) {
 			return 0;
+		}
+
 		int level = lca.getLevel(node);
 		node = order.position[node];
 		long result = (base.query(node, node) + level
@@ -85,17 +91,21 @@ class RootedTree {
 				% MOD;
 		result *= reverse;
 		result %= MOD;
+
 		return result;
 	}
 
 	private void dfs(int current, int last, int[] parent,
 			BidirectionalGraph graph) {
 		parent[current] = last;
+
 		for (int i = graph.firstOutbound(current); i != -1; i = graph
 				.nextOutbound(i)) {
 			int next = graph.destination(i);
-			if (next != last)
+
+			if (next != last) {
 				dfs(next, current, parent, graph);
+			}
 		}
 	}
 
@@ -124,7 +134,6 @@ class RootedTree {
 			return 0;
 		}
 	}
-
 }
 
 class DFSOrder {
@@ -141,14 +150,19 @@ class DFSOrder {
 		end = new int[count];
 		int[] edge = new int[count];
 		int[] stack = new int[count];
-		for (int i = 0; i < count; i++)
+		
+		for (int i = 0; i < count; i++) {
 			edge[i] = graph.firstOutbound(i);
+		}
+
 		stack[0] = root;
 		int size = 1;
 		position[root] = 0;
 		int index = 0;
+
 		while (size > 0) {
 			int current = stack[size - 1];
+
 			if (edge[current] == -1) {
 				end[current] = index;
 				size--;
@@ -172,24 +186,31 @@ class DFSOrder {
 		int[] edge = new int[count];
 		int[] stack = new int[count];
 		int[] last = new int[count];
-		for (int i = 0; i < count; i++)
+
+		for (int i = 0; i < count; i++) {
 			edge[i] = graph.firstOutbound(i);
+		}
+
 		stack[0] = root;
 		last[root] = -1;
 		int size = 1;
 		position[root] = 0;
 		int index = 0;
+
 		while (size > 0) {
 			int current = stack[size - 1];
+
 			if (edge[current] == -1) {
 				end[current] = index;
 				size--;
 			} else {
 				int next = graph.destination(edge[current]);
+
 				if (next == last[current]) {
 					edge[current] = graph.nextOutbound(edge[current]);
 					continue;
 				}
+
 				edge[current] = graph.nextOutbound(edge[current]);
 				position[next] = ++index;
 				last[next] = current;
@@ -214,8 +235,11 @@ class LCA {
 		position = new int[graph.vertexCount()];
 		level = new int[graph.vertexCount()];
 		int[] index = new int[graph.vertexCount()];
-		for (int i = 0; i < index.length; i++)
+
+		for (int i = 0; i < index.length; i++) {
 			index[i] = graph.firstOutbound(i);
+		}
+
 		int[] last = new int[graph.vertexCount()];
 		int[] stack = new int[graph.vertexCount()];
 		stack[0] = root;
@@ -223,16 +247,25 @@ class LCA {
 		int j = 0;
 		last[root] = -1;
 		Arrays.fill(position, -1);
+
 		while (size > 0) {
 			int vertex = stack[--size];
-			if (position[vertex] == -1)
+
+			if (position[vertex] == -1) {
 				position[vertex] = j;
+			}
+
 			order[j++] = vertex;
-			if (last[vertex] != -1)
+
+			if (last[vertex] != -1) {
 				level[vertex] = level[last[vertex]] + 1;
+			}
+
 			while (index[vertex] != -1
-					&& last[vertex] == graph.destination(index[vertex]))
+					&& last[vertex] == graph.destination(index[vertex])) {
 				index[vertex] = graph.nextOutbound(index[vertex]);
+			}
+
 			if (index[vertex] != -1) {
 				stack[size++] = vertex;
 				stack[size++] = graph.destination(index[vertex]);
@@ -240,15 +273,22 @@ class LCA {
 				index[vertex] = graph.nextOutbound(index[vertex]);
 			}
 		}
+
 		lcaTree = new ReadOnlyIntervalTree(order) {
 			@Override
 			protected long joinValue(long left, long right) {
-				if (left == -1)
+				if (left == -1) {
 					return right;
-				if (right == -1)
+				}
+
+				if (right == -1) {
 					return left;
-				if (level[((int) left)] < level[((int) right)])
+				}
+
+				if (level[((int) left)] < level[((int) right)]) {
 					return left;
+				}
+
 				return right;
 			}
 
@@ -257,6 +297,7 @@ class LCA {
 				return -1;
 			}
 		};
+
 		lcaTree.init();
 	}
 
@@ -283,44 +324,61 @@ class InputReader {
 	}
 
 	public int read() {
-		if (numChars == -1)
+		if (numChars == -1) {
 			throw new InputMismatchException();
+		}
+
 		if (curChar >= numChars) {
 			curChar = 0;
+
 			try {
 				numChars = stream.read(buf);
 			} catch (IOException e) {
 				throw new InputMismatchException();
 			}
-			if (numChars <= 0)
+
+			if (numChars <= 0) {
 				return -1;
+			}
 		}
+
 		return buf[curChar++];
 	}
 
 	public int readInt() {
 		int c = read();
-		while (isSpaceChar(c))
+
+		while (isSpaceChar(c)) {
 			c = read();
+		}
+
 		int sgn = 1;
+		
 		if (c == '-') {
 			sgn = -1;
 			c = read();
 		}
+
 		int res = 0;
+
 		do {
-			if (c < '0' || c > '9')
+			if (c < '0' || c > '9') {
 				throw new InputMismatchException();
+			}
+
 			res *= 10;
 			res += c - '0';
 			c = read();
 		} while (!isSpaceChar(c));
+
 		return res * sgn;
 	}
 
 	public boolean isSpaceChar(int c) {
-		if (filter != null)
+		if (filter != null) {
 			return filter.isSpaceChar(c);
+		}
+
 		return isWhitespace(c);
 	}
 
@@ -330,8 +388,11 @@ class InputReader {
 
 	public char readCharacter() {
 		int c = read();
-		while (isSpaceChar(c))
+
+		while (isSpaceChar(c)) {
 			c = read();
+		}
+
 		return (char) c;
 	}
 
@@ -359,14 +420,14 @@ class OutputWriter {
 	public void printLine(long i) {
 		writer.println(i);
 	}
-
 }
 
 class IOUtils {
 	public static void readIntArrays(InputReader in, int[]... arrays) {
 		for (int i = 0; i < arrays[0].length; i++) {
-			for (int j = 0; j < arrays.length; j++)
+			for (int j = 0; j < arrays.length; j++) {
 				arrays[j][i] = in.readInt();
+			}
 		}
 	}
 }
@@ -374,8 +435,9 @@ class IOUtils {
 class MiscUtils {
 	public static void decreaseByOne(int[]... arrays) {
 		for (int[] array : arrays) {
-			for (int i = 0; i < array.length; i++)
+			for (int i = 0; i < array.length; i++) {
 				array[i]--;
+			}
 		}
 	}
 }
@@ -396,8 +458,11 @@ class BidirectionalGraph extends Graph {
 			int[] to) {
 		BidirectionalGraph graph = new BidirectionalGraph(vertexCount,
 				from.length);
-		for (int i = 0; i < from.length; i++)
+
+		for (int i = 0; i < from.length; i++) {
 			graph.addSimpleEdge(from[i], to[i]);
+		}
+
 		return graph;
 	}
 
@@ -409,6 +474,7 @@ class BidirectionalGraph extends Graph {
 				: reverseEdge + 1);
 		this.transposedEdge[lastEdgeCount] = lastEdgeCount + 1;
 		this.transposedEdge[lastEdgeCount + 1] = lastEdgeCount;
+
 		return lastEdgeCount;
 	}
 
@@ -435,8 +501,10 @@ abstract class IntervalTree {
 		this.size = size;
 		int nodeCount = Math.max(1, Integer.highestOneBit(size) << 2);
 		initData(size, nodeCount);
-		if (shouldInit)
+
+		if (shouldInit) {
 			init();
+		}
 	}
 
 	protected abstract void initData(int size, int nodeCount);
@@ -468,8 +536,10 @@ abstract class IntervalTree {
 	protected abstract long emptySegmentResult();
 
 	public void init() {
-		if (size == 0)
+		if (size == 0) {
 			return;
+		}
+
 		init(0, 0, size - 1);
 	}
 
@@ -478,10 +548,10 @@ abstract class IntervalTree {
 			initLeaf(root, left);
 		} else {
 			int middle = (left + right) >> 1;
-		initBefore(root, left, right, middle);
-		init(2 * root + 1, left, middle);
-		init(2 * root + 2, middle + 1, right);
-		initAfter(root, left, right, middle);
+			initBefore(root, left, right, middle);
+			init(2 * root + 1, left, middle);
+			init(2 * root + 2, middle + 1, right);
+			initAfter(root, left, right, middle);
 		}
 	}
 
@@ -491,12 +561,16 @@ abstract class IntervalTree {
 
 	protected void update(int root, int left, int right, int from, int to,
 			long delta) {
-		if (left > to || right < from)
-			return;
-		if (left >= from && right <= to) {
-			updateFull(root, left, right, from, to, delta);
+		if (left > to || right < from) {
 			return;
 		}
+
+		if (left >= from && right <= to) {
+			updateFull(root, left, right, from, to, delta);
+
+			return;
+		}
+
 		int middle = (left + right) >> 1;
 		updatePreProcess(root, left, right, from, to, delta, middle);
 		update(2 * root + 1, left, middle, from, to, delta);
@@ -509,14 +583,19 @@ abstract class IntervalTree {
 	}
 
 	protected long query(int root, int left, int right, int from, int to) {
-		if (left > to || right < from)
+		if (left > to || right < from) {
 			return emptySegmentResult();
-		if (left >= from && right <= to)
+		}
+
+		if (left >= from && right <= to) {
 			return queryFull(root, left, right, from, to);
+		}
+
 		int middle = (left + right) >> 1;
 		queryPreProcess(root, left, right, from, to, middle);
 		long leftResult = query(2 * root + 1, left, middle, from, to);
 		long rightResult = query(2 * root + 2, middle + 1, right, from, to);
+
 		return queryPostProcess(root, left, right, from, to, middle,
 				leftResult, rightResult);
 	}
@@ -555,39 +634,57 @@ class Graph {
 	public int addEdge(int fromID, int toID, long weight, long capacity,
 			int reverseEdge) {
 		ensureEdgeCapacity(edgeCount + 1);
-		if (firstOutbound[fromID] != -1)
+
+		if (firstOutbound[fromID] != -1) {
 			nextOutbound[edgeCount] = firstOutbound[fromID];
-		else
+		} else {
 			nextOutbound[edgeCount] = -1;
+		}
+
 		firstOutbound[fromID] = edgeCount;
+
 		if (firstInbound != null) {
-			if (firstInbound[toID] != -1)
+			if (firstInbound[toID] != -1) {
 				nextInbound[edgeCount] = firstInbound[toID];
-			else
+			} else {
 				nextInbound[edgeCount] = -1;
+			}
+
 			firstInbound[toID] = edgeCount;
 		}
+
 		this.from[edgeCount] = fromID;
 		this.to[edgeCount] = toID;
+
 		if (capacity != 0) {
-			if (this.capacity == null)
+			if (this.capacity == null) {
 				this.capacity = new long[from.length];
+			}
+
 			this.capacity[edgeCount] = capacity;
 		}
+
 		if (weight != 0) {
-			if (this.weight == null)
+			if (this.weight == null) {
 				this.weight = new long[from.length];
+			}
+
 			this.weight[edgeCount] = weight;
 		}
+
 		if (reverseEdge != -1) {
 			if (this.reverseEdge == null) {
 				this.reverseEdge = new int[from.length];
 				Arrays.fill(this.reverseEdge, 0, edgeCount, -1);
 			}
+
 			this.reverseEdge[edgeCount] = reverseEdge;
 		}
-		if (edges != null)
+
+		if (edges != null) {
 			edges[edgeCount] = createEdge(edgeCount);
+		}
+
 		return edgeCount++;
 	}
 
@@ -602,6 +699,7 @@ class Graph {
 		} else {
 			int lastEdgeCount = edgeCount;
 			addEdge(to, from, -weight, 0, lastEdgeCount + entriesPerEdge());
+
 			return addEdge(from, to, weight, capacity, lastEdgeCount);
 		}
 	}
@@ -628,15 +726,21 @@ class Graph {
 
 	public final int firstOutbound(int vertex) {
 		int id = firstOutbound[vertex];
-		while (id != -1 && isRemoved(id))
+
+		while (id != -1 && isRemoved(id)) {
 			id = nextOutbound[id];
+		}
+
 		return id;
 	}
 
 	public final int nextOutbound(int id) {
 		id = nextOutbound[id];
-		while (id != -1 && isRemoved(id))
+
+		while (id != -1 && isRemoved(id)) {
 			id = nextOutbound[id];
+		}
+
 		return id;
 	}
 
@@ -655,19 +759,31 @@ class Graph {
 	protected void ensureEdgeCapacity(int size) {
 		if (from.length < size) {
 			int newSize = Math.max(size, 2 * from.length);
-			if (edges != null)
+
+			if (edges != null) {
 				edges = resize(edges, newSize);
+			}
+
 			from = resize(from, newSize);
 			to = resize(to, newSize);
 			nextOutbound = resize(nextOutbound, newSize);
-			if (nextInbound != null)
+
+			if (nextInbound != null) {
 				nextInbound = resize(nextInbound, newSize);
-			if (weight != null)
+			}
+
+			if (weight != null) {
 				weight = resize(weight, newSize);
-			if (capacity != null)
+			}
+
+			if (capacity != null) {
 				capacity = resize(capacity, newSize);
-			if (reverseEdge != null)
+			}
+
+			if (reverseEdge != null) {
 				reverseEdge = resize(reverseEdge, newSize);
+			}
+
 			flags = resize(flags, newSize);
 		}
 	}
@@ -675,18 +791,21 @@ class Graph {
 	protected final int[] resize(int[] array, int size) {
 		int[] newArray = new int[size];
 		System.arraycopy(array, 0, newArray, 0, array.length);
+
 		return newArray;
 	}
 
 	private long[] resize(long[] array, int size) {
 		long[] newArray = new long[size];
 		System.arraycopy(array, 0, newArray, 0, array.length);
+
 		return newArray;
 	}
 
 	private Edge[] resize(Edge[] array, int size) {
 		Edge[] newArray = new Edge[size];
 		System.arraycopy(array, 0, newArray, 0, array.length);
+
 		return newArray;
 	}
 
