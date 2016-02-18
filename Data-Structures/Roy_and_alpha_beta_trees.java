@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class Roy_and_alpha_beta_trees {
 	private static long MOD = 1000000009;
 
-	public static void solve(Input in, PrintWriter out) throws IOException {
+	private static void solve(Input in, PrintWriter out) throws IOException {
 		int maxn = 150;
 		long[] c = new long[maxn + 1];
 		long[][][] d = new long[2][maxn + 1][];
@@ -81,7 +81,7 @@ public class Roy_and_alpha_beta_trees {
 		out.close();
 	}
 
-	static class Input {
+	private static class Input {
 		BufferedReader in;
 		StringBuilder sb = new StringBuilder();
 
