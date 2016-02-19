@@ -6,7 +6,7 @@ import java.io.StringReader;
 import java.util.ArrayList;
  
 public class Subtrees_And_Paths {
-    static class Node {
+    private static class Node {
         Node l = null, r = null, p = null;
         boolean root = true;
         long value, sumValues, maxValue;
@@ -35,7 +35,7 @@ public class Subtrees_And_Paths {
         }
     }
  
-    static void fixUp(Node n) {
+    private static void fixUp(Node n) {
         n.maxValue = n.sumValues = n.value;
  
         if (n.l != null) {
@@ -51,10 +51,10 @@ public class Subtrees_And_Paths {
     }
  
     @Deprecated
-    static void fixDown(Node n) {
+    private static void fixDown(Node n) {
     }
  
-    static void rotate(Node x) {
+    private static void rotate(Node x) {
         Node y = x.p;
         x.p = y.p;
  
@@ -91,7 +91,7 @@ public class Subtrees_And_Paths {
         fixUp(x);
     }
  
-    static void splay(Node x) {
+    private static void splay(Node x) {
         while (!x.root) {
             if (!x.p.root) {
                 fixDown(x.p.p);
@@ -115,7 +115,7 @@ public class Subtrees_And_Paths {
         }
     }
  
-    static Node join(Node l, Node x, Node r) {
+    private static Node join(Node l, Node x, Node r) {
         x.l = l;
         x.r = r;
  
@@ -134,9 +134,9 @@ public class Subtrees_And_Paths {
         return x;
     }
  
-    static Node q, r;
+    private static Node q, r;
  
-    static void split(Node x) {
+    private static void split(Node x) {
         splay(x);
         fixDown(x);
  
@@ -157,17 +157,17 @@ public class Subtrees_And_Paths {
         fixUp(x);
     }
  
-    static Node findPath(Node x) {
+    private static Node findPath(Node x) {
         splay(x);
  
         return x;
     }
  
-    static void link(Node x, Node y) {
+    private static void link(Node x, Node y) {
         join(null, expose(x), expose(y)).p = null;
     }
  
-    static void unlink(Node x) {
+    private static void unlink(Node x) {
         expose(x);
         splay(x);
         fixDown(x);
@@ -181,7 +181,7 @@ public class Subtrees_And_Paths {
         fixUp(x);
     }
  
-    static Node expose(Node v) {
+    private static Node expose(Node v) {
         Node p = null;
  
         while (v != null) {
@@ -202,7 +202,7 @@ public class Subtrees_And_Paths {
     }
  
     @SuppressWarnings("unused")
-    public static void solve(Input in, PrintWriter out) throws IOException {
+    private static void solve(Input in, PrintWriter out) throws IOException {
         int n = in.nextInt();
         @SuppressWarnings("unchecked")
         ArrayList<Integer>[] edges = new ArrayList[n];
@@ -290,7 +290,7 @@ public class Subtrees_And_Paths {
         out.close();
     }
  
-    static class Input {
+    private static class Input {
         BufferedReader in;
         StringBuilder sb = new StringBuilder();
  
