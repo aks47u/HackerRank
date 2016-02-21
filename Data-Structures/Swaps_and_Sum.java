@@ -6,15 +6,15 @@ import java.io.StringReader;
 import java.util.Random;
 
 public class Swaps_and_Sum {
-	static int size(Node x) {
+	private static int size(Node x) {
 		return x == null ? 0 : x.size;
 	}
 
-	static long sum(Node x) {
+	private static long sum(Node x) {
 		return x == null ? 0 : x.sum;
 	}
 
-	static class Node {
+	private static class Node {
 		final static Random rnd = new Random(42);
 		Node l, r;
 		int depth;
@@ -43,7 +43,7 @@ public class Swaps_and_Sum {
 		}
 	}
 
-	static Node[] split(Node x, int left) {
+	private static Node[] split(Node x, int left) {
 		if (x == null) {
 			return new Node[2];
 		}
@@ -65,7 +65,7 @@ public class Swaps_and_Sum {
 		return p;
 	}
 
-	static Node[] splitAt(Node x, int... at) {
+	private static Node[] splitAt(Node x, int... at) {
 		Node[] ret = new Node[at.length + 1];
 
 		for (int i = at.length - 1; i >= 0; --i) {
@@ -79,7 +79,7 @@ public class Swaps_and_Sum {
 		return ret;
 	}
 
-	static Node merge(Node l, Node r) {
+	private static Node merge(Node l, Node r) {
 		if (l == null) {
 			return r;
 		}
@@ -101,7 +101,7 @@ public class Swaps_and_Sum {
 		}
 	}
 
-	static Node mergeAll(Node... nodes) {
+	private static Node mergeAll(Node... nodes) {
 		Node ret = null;
 
 		for (Node node : nodes) {
@@ -111,7 +111,7 @@ public class Swaps_and_Sum {
 		return ret;
 	}
 
-	public static void solve(Input in, PrintWriter out) throws IOException {
+	private static void solve(Input in, PrintWriter out) throws IOException {
 		int n = in.nextInt();
 		int q = in.nextInt();
 		Node even = null, odd = null;
@@ -154,7 +154,7 @@ public class Swaps_and_Sum {
 		out.close();
 	}
 
-	static class Input {
+	private static class Input {
 		BufferedReader in;
 		StringBuilder sb = new StringBuilder();
 
