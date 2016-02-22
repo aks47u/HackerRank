@@ -18,8 +18,10 @@ using namespace std;
 #define pb push_back
 #define fi first
 #define se second
+
 typedef long long ll;
 typedef pair<int, int> pii;
+
 const int MAX_N = 2e5 + 1;
 const int POINT = -1;
 const int QUERY = +1;
