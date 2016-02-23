@@ -7,7 +7,7 @@ public class The_crazy_helix {
 	private static Reader in;
 	private static PrintWriter out;
 
-	static class Node {
+	private static class Node {
 		int id, size;
 		Node left;
 		Node right;
@@ -27,7 +27,7 @@ public class The_crazy_helix {
 		}
 	}
 
-	static void push(Node x) {
+	private static void push(Node x) {
 		if (!x.flip) {
 			return;
 		}
@@ -48,11 +48,11 @@ public class The_crazy_helix {
 		join(x);
 	}
 
-	static boolean isRoot(Node x) {
+	private static boolean isRoot(Node x) {
 		return x.parent == null;
 	}
 
-	static void connect(Node ch, Node p, boolean leftChild) {
+	private static void connect(Node ch, Node p, boolean leftChild) {
 		if (leftChild) {
 			p.left = ch;
 		} else {
@@ -66,7 +66,7 @@ public class The_crazy_helix {
 		}
 	}
 
-	static void rotate(Node x) {
+	private static void rotate(Node x) {
 		Node p = x.parent;
 		Node g = p.parent;
 		boolean isRootP = isRoot(p);
@@ -82,7 +82,7 @@ public class The_crazy_helix {
 		}
 	}
 
-	static void splay(Node x) {
+	private static void splay(Node x) {
 		while (!isRoot(x)) {
 			Node p = x.parent;
 			Node g = p.parent;
@@ -105,7 +105,7 @@ public class The_crazy_helix {
 		root = x;
 	}
 
-	static Node cutLeft(Node x) {
+	private static Node cutLeft(Node x) {
 		Node ret = x.left;
 
 		if (ret != null) {
@@ -117,7 +117,7 @@ public class The_crazy_helix {
 		return ret;
 	}
 
-	static Node cutRight(Node x) {
+	private static Node cutRight(Node x) {
 		Node ret = x.right;
 
 		if (ret != null) {
@@ -129,7 +129,7 @@ public class The_crazy_helix {
 		return ret;
 	}
 
-	static void join(Node x) {
+	private static void join(Node x) {
 		x.size = (x.left == null ? 0 : x.left.size)
 				+ (x.right == null ? 0 : x.right.size) + 1;
 	}
@@ -144,21 +144,21 @@ public class The_crazy_helix {
 			int cmd = in.nextInt();
 
 			switch (cmd) {
-			case 1: {
-				int a = in.nextInt(), b = in.nextInt();
-				flip(a, b);
-				break;
-			}
-			case 2: {
-				int a = in.nextInt();
-				out.printf("element %d is at position %d\n", a, getPosition(a));
-				break;
-			}
-			case 3: {
-				int a = in.nextInt();
-				out.printf("element at position %d is %d\n", a, getElement(a));
-				break;
-			}
+				case 1: {
+					int a = in.nextInt(), b = in.nextInt();
+					flip(a, b);
+					break;
+				}
+				case 2: {
+					int a = in.nextInt();
+					out.printf("element %d is at position %d\n", a, getPosition(a));
+					break;
+				}
+				case 3: {
+					int a = in.nextInt();
+					out.printf("element at position %d is %d\n", a, getElement(a));
+					break;
+				}
 			}
 		}
 
@@ -251,7 +251,7 @@ public class The_crazy_helix {
 	private static Node[] nodes;
 	private static Node root;
 
-	static class Reader {
+	private static class Reader {
 		final private int BUFFER_SIZE = 1 << 16;
 		private DataInputStream din;
 		private byte[] buffer;
