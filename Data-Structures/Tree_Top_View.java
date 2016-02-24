@@ -1,7 +1,7 @@
 void top_view(Node root) {
 	if (root == null) {
 		return;
-		}
+	}
 	
 	Stack st = new Stack();
 	int size = 0;
