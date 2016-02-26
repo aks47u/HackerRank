@@ -6,15 +6,15 @@ import java.util.Random;
 import java.util.StringTokenizer;
 
 public class Two_Array_Problem {
-	static int MAX = 1111111;
+	private static int MAX = 1111111;
 
-	static class Node {
+	private static class Node {
 		Node child[] = new Node[2], parent;
 		boolean reverse;
 		int value, size;
 	}
 
-	static class SplayTree {
+	private static class SplayTree {
 		public static final Node nil;
 
 		static {
@@ -188,19 +188,19 @@ public class Two_Array_Problem {
 		}
 	}
 
-	static int n, m;
-	static int[] a;
-	static int[] buffer2 = new int[MAX];
-	static int[] buffer1 = new int[MAX];
-	static Random rand = new Random();
-	static double[][] p = new double[MAX][2];
-	static final double eps = 1E-8;
+	private static int n, m;
+	private static int[] a;
+	private static int[] buffer2 = new int[MAX];
+	private static int[] buffer1 = new int[MAX];
+	private static Random rand = new Random();
+	private static double[][] p = new double[MAX][2];
+	private static final double eps = 1E-8;
 
-	static double dis(double[] a, double[] b) {
+	private static double dis(double[] a, double[] b) {
 		return Math.sqrt((a[0] - b[0]) * (a[0] - b[0]) + (a[1] - b[1]) * (a[1] - b[1]));
 	}
 
-	static void circumcenter(double[] a, double[] b, double[] c, double[] res) {
+	private static void circumcenter(double[] a, double[] b, double[] c, double[] res) {
 		double a1 = b[0] - a[0], b1 = b[1] - a[1], c1 = (a1 * a1 + b1 * b1) / 2;
 		double a2 = c[0] - a[0], b2 = c[1] - a[1], c2 = (a2 * a2 + b2 * b2) / 2;
 		double d = a1 * b2 - a2 * b1;
@@ -208,7 +208,7 @@ public class Two_Array_Problem {
 		res[1] = a[1] + (a1 * c2 - a2 * c1) / d;
 	}
 
-	static double minDisk(int[] x, int[] y) {
+	private static double minDisk(int[] x, int[] y) {
 		for (int n = x[0]; n >= 1; n--) {
 			int i = rand.nextInt(n) + 1;
 			int tmp = x[i];
@@ -323,7 +323,7 @@ public class Two_Array_Problem {
 		cout.close();
 	}
 
-	static class Pair<U extends Comparable<U>, V extends Comparable<V>> implements Comparable<Pair<U, V>> {
+	private static class Pair<U extends Comparable<U>, V extends Comparable<V>> implements Comparable<Pair<U, V>> {
 		final U _1;
 		final V _2;
 
