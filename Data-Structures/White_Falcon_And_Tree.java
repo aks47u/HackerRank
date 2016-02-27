@@ -20,7 +20,7 @@ public class White_Falcon_And_Tree {
 }
 
 class WhiteFalconAndTree {
-	static final int MOD = 1000_000_007;
+	static final int MOD = 1000000007;
 
 	public void solve(int testNumber, InputReader in, PrintWriter out) {
 		int N = in.nextInt();
@@ -62,25 +62,25 @@ class WhiteFalconAndTree {
 			int cmd = in.nextInt();
 
 			switch (cmd) {
-			case 1: {
-				int u = in.nextInt() - 1;
-				int v = in.nextInt() - 1;
-				long a = in.nextInt();
-				long b = in.nextInt();
-				hldLeft.modify(u, v, (a << 32) + b);
-				hldRight.modify(u, v, (a << 32) + b);
-				break;
-			}
-			case 2: {
-				int v = in.nextInt() - 1;
-				int u = in.nextInt() - 1;
-				int x = in.nextInt();
-				long f = query(hldLeft, hldRight, u, v);
-				long a = f >>> 32;
-				long b = f & 0xFFFFFFFFL;
-				out.println((a * x + b) % MOD);
-				break;
-			}
+				case 1: {
+					int u = in.nextInt() - 1;
+					int v = in.nextInt() - 1;
+					long a = in.nextInt();
+					long b = in.nextInt();
+					hldLeft.modify(u, v, (a << 32) + b);
+					hldRight.modify(u, v, (a << 32) + b);
+					break;
+				}
+				case 2: {
+					int v = in.nextInt() - 1;
+					int u = in.nextInt() - 1;
+					int x = in.nextInt();
+					long f = query(hldLeft, hldRight, u, v);
+					long a = f >>> 32;
+					long b = f & 0xFFFFFFFFL;
+					out.println((a * x + b) % MOD);
+					break;
+				}
 			}
 		}
 	}
@@ -165,8 +165,7 @@ class WhiteFalconAndTree {
 		int[][] len;
 		List<Integer>[] tree;
 		boolean leftOrder;
-		int[] size, parent;
-		int[] tin, tout;
+		int[] size, parent, tin, tout;
 		int time;
 		int[] path, pathSize, pathPos, pathRoot;
 		int[] firstPath, lastPath;
