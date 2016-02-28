@@ -1,9 +1,9 @@
 import Data.List 
 
-type Grid c = [[c]] -- polymorphic grid 
-type Point = (Int, Int) -- (x, y)
-type Image c = Point -> c -- transformation from point to image
-type Tree = (Point, Int) -- base and the height of the tree
+type Grid c = [[c]]
+type Point = (Int, Int)
+type Image c = Point -> c
+type Tree = (Point, Int)
 
 pointsOfTree :: Tree -> [Point]
 pointsOfTree ((basex, basey), h) = trunk ++ left ++ right
