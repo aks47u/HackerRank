@@ -1,5 +1,3 @@
-#lang racket
-
 (define (sum-of-two-integers a b)
   (+ a b))
 
