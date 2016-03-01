@@ -16,7 +16,7 @@ public class Java_Loops {
 				System.out.print(total + " ");
 			}
 
-            System.out.println();
+			System.out.println();
 		}
 
 		scn.close();
