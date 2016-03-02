@@ -8,9 +8,9 @@ public class Closest_Number {
 		int x, a, b;
 		long storage;
 		String[] values = new String[3];
-		int testc = Integer.parseInt(br.readLine());
+		int T = Integer.parseInt(br.readLine());
 
-		while (testc > 0) {
+		while (T-- > 0) {
 			values = br.readLine().split(" ");
 			a = Integer.parseInt(values[0]);
 			b = Integer.parseInt(values[1]);
@@ -22,8 +22,6 @@ public class Closest_Number {
 			} else {
 				System.out.println(storage - storage % x);
 			}
-
-			testc--;
 		}
 	}
 }
