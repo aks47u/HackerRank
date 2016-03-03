@@ -3,9 +3,6 @@ import java.io.InputStreamReader;
 import java.math.BigInteger;
 
 public class Diwali_Lights {
-	private static BufferedReader in = new BufferedReader(new InputStreamReader(
-			System.in));
-
 	private static BigInteger ExponentBySquare(long x, long n) {
 		BigInteger big = BigInteger.valueOf(x).pow((int) n)
 				.subtract(BigInteger.ONE).mod(new BigInteger("100000"));
@@ -15,11 +12,11 @@ public class Diwali_Lights {
 
 	public static void main(String[] args) throws NumberFormatException,
 	Exception {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		int T = Integer.parseInt(in.readLine());
 
-		for (int i = 0; i < T; i++) {
-			long noOfBulbs = Long.parseLong(in.readLine());
-			System.out.println(ExponentBySquare(2, noOfBulbs).toString());
+		while (T-- > 0) {
+			System.out.println(ExponentBySquare(2, Long.parseLong(in.readLine())).toString());
 		}
 
 		in.close();
