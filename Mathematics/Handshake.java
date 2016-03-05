@@ -9,9 +9,9 @@ public class Handshake {
 	Exception {
 		int T = Integer.parseInt(in.readLine());
 
-		for (int i = 0; i < T; i++) {
-			int numofPersons = Integer.parseInt(in.readLine());
-			System.out.println((int) (numofPersons * (numofPersons - 1)) / 2);
+		while (T-- > 0) {
+			int n = Integer.parseInt(in.readLine());
+			System.out.println((int) (n * (n - 1)) / 2);
 		}
 
 		in.close();
