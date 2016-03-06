@@ -76,14 +76,6 @@ public class Jim_and_the_Jokes {
 		return Integer.parseInt(nextToken());
 	}
 
-	long nextLong() throws IOException {
-		return Long.parseLong(nextToken());
-	}
-
-	double nextDouble() throws IOException {
-		return Double.parseDouble(nextToken());
-	}
-
 	String nextToken() throws IOException {
 		while (tokenizer == null || !tokenizer.hasMoreTokens()) {
 			tokenizer = new StringTokenizer(reader.readLine());
