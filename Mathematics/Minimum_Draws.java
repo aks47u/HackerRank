@@ -9,9 +9,9 @@ public class Minimum_Draws {
 	Exception {
 		int T = Integer.parseInt(in.readLine());
 
-		for (int i = 0; i < T; i++) {
-			int noOfPairs = Integer.parseInt(in.readLine());
-			System.out.println(minimumDraw(noOfPairs));
+		while (T-- > 0) {
+			int n = Integer.parseInt(in.readLine());
+			System.out.println(minimumDraw(n));
 		}
 
 		in.close();
