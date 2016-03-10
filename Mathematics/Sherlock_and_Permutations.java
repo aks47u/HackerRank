@@ -6,7 +6,7 @@ public class Sherlock_and_Permutations {
 		Scanner scn = new Scanner(System.in);
 		int T = scn.nextInt();
 
-		for (int i = 0; i < T; i++) {
+		while (T-- > 0) {
 			int N = scn.nextInt();
 			int M = scn.nextInt();
 			BigInteger top = factorial(N + M - 1);
