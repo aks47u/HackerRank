@@ -10,7 +10,7 @@ public class Summing_the_N_series {
 		BigInteger mod = BigInteger.valueOf(1000000007);
 		BigInteger result = BigInteger.ZERO;
 
-		for (int i = 0; i < T; i++) {
+		while (T-- > 0) {
 			n = scn.nextBigInteger();
 			nn = n.multiply(n);
 			result = nn.mod(mod);
