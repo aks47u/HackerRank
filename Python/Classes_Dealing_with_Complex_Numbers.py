@@ -9,7 +9,6 @@ class Calc(object):
 A = Calc(a, b)
 [a,b] = [float(j) for j in raw_input().split()]
 B = Calc(a, b)
-
 addr = (A.r + B.r)
 addi = (A.i + B.i)
 
