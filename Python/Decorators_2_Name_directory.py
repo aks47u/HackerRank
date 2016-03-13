@@ -4,7 +4,7 @@ M = []
 
 for i in range(int(raw_input())):
   s = raw_input()
-  match = re.findall(r'(\w+\s\w+)\s(\d+)\s(\w)',s)
+  match = re.findall(r'(\w+\s\w+)\s(\d+)\s(\w)', s)
   M.append(match[0])
 
 M = sorted(M, key = lambda student: student[1])
