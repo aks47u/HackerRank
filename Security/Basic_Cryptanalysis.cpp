@@ -1,9 +1,10 @@
-#include<iostream>
-#include<fstream>
-#include<string>
-#include<vector>
-#include<algorithm>
-#include<cstring>
+#include <algorithm>
+#include <cstring>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+
 using namespace std;
 
 vector<string> vs[17];
@@ -19,7 +20,7 @@ struct Foo {
 	;
 
 	Foo(string _str, int _idx) :
-		str(_str), idx(_idx) {
+			str(_str), idx(_idx) {
 	}
 	;
 };
